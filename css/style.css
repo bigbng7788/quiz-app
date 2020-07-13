@@ -4,8 +4,8 @@
 
 body {
     font-size: 112.5%;
-    color: rgb(142,142,147);
     background-color: rgb(28,28,30);
+    color: rgb(142,142,147);
     padding: 20px;
     margin: 0;
     display: grid;
@@ -20,11 +20,11 @@ header {
     grid-row: 1;
     justify-content: center; 
     align-items: center;
-
 }
 
 header h1 {
     margin: 0;
+    color: lightseagreen;
 }
 main {
     display: grid;
@@ -32,6 +32,36 @@ main {
     grid-row: 2;
     margin: 10px;
 }
+
+.card {
+    margin: 40px;
+    padding: 40px;
+    border: solid 4px;
+    border-radius: 20px;
+    
+}
+
+.card .bookmark {
+    background-color: darkgreen;
+
+}
+
+.card h2 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.card button {
+    display: block;
+    font-size: 120%;
+    background-color: lightseagreen;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px auto;
+}
+
 
 footer {
     grid-column: 1/-1;
