@@ -1,138 +1,133 @@
-*{box-sizing: border-box;
-
+* {
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 112.5%;
-    background-color: rgb(28,28,30);
-    color: rgb(142,142,147);
-    padding: 20px;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 48px auto 48px;
-
+  font-size: 112.5%;
+  background-color: rgb(28, 28, 30);
+  color: rgb(142, 142, 147);
+  padding: 20px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 48px auto 48px;
 }
 
 header {
-    display: grid;
-    grid-column: 1/-1;
-    grid-row: 1;
-    justify-content: center; 
-    align-items: center;
-    margin: 10px;
+  display: grid;
+  grid-column: 1/-1;
+  grid-row: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 header h1 {
-    margin: 0;
-    color: lightseagreen;
+  margin: 0;
+  color: lightseagreen;
 }
 main {
-    display: grid;
-    grid-column: 1/-1;
-    grid-row: 2;
+  display: grid;
+  grid-column: 1/-1;
+  grid-row: 2;
 }
 
 .card {
-    margin: 40px;
-    padding: 20px;
-    border: solid 4px;
-    border-radius: 20px;
-    z-index: 0;
+  margin: 40px;
+  padding: 20px;
+  border: solid 4px;
+  border-radius: 20px;
+  z-index: 0;
 }
 
-.card .bookmark {
-    display: grid;
-    margin: 0 0 0 auto;
-    padding: 30px;
-    border: 0;
+.card .card__bookmark {
+  display: grid;
+  margin: 0 0 0 auto;
+  padding: 30px;
+  border: 0;
 }
 
 .card h2 {
-    margin: 0;
-    padding: 10px 0;
+  margin: 0;
+  padding: 10px 0;
 }
 
-.answer-button {
-    display:none;
-    font-size: 120%;
-    background-color: lightseagreen;
-    color: black;
-    border: none;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 20px auto 20px auto;
-    visibility:hidden;
-
+.card__answer--button {
+  display: none;
+  font-size: 120%;
+  background-color: lightseagreen;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 20px auto 20px auto;
+  visibility: hidden;
 }
-.answer-target {
-    opacity: 0;
-    max-height: 0;
-    font-size: 0;
-    transition: .25s ease;
+.card__answer--target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: 0.25s ease;
 }
 
-.answer-button:checked ~ .answer-target {
-    opacity: 1;
-    font-size: inherit;
-    max-height: 999em;
-  }
-  
-  .answer-button ~ .answer-trigger:before {
-    content: 'show answer';
-  }
-  
-  .answer-button:checked ~ .answer-trigger:before {
-    content: 'hide answer';
-  }
+.card__answer--button:checked ~ .card__answer--target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
 
-  .answer-trigger {
-    cursor: pointer;
-    display: block;
-    font-size: 120%;
-    background-color: lightseagreen;
-    color: black;
-    border: none;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 20px auto 20px auto;
-    width: max-content;
-  }
+.card__answer--button ~ .card__answer--trigger:before {
+  content: 'show answer';
+}
 
-.tags {
-    display: flex;
-    justify-content: space-evenly;
-    align-self: center;
+.card__answer--button:checked ~ .card__answer--trigger:before {
+  content: 'hide answer';
+}
+
+.card__answer--trigger {
+  cursor: pointer;
+  display: block;
+  font-size: 120%;
+  background-color: lightseagreen;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 20px auto 20px auto;
+  width: max-content;
+}
+
+.card__taglist{
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
 }
 
 footer {
-    grid-column: 1/-1;
-    grid-row: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-column: 1/-1;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 a + a {
-border-left: solid white 2px;
-margin-left: 5px;
-padding-left: 7px;
+  border-left: solid white 2px;
+  margin-left: 5px;
+  padding-left: 7px;
 }
-
-
-
 
 /* create.html styles */
 
-.createcard textarea{
-display: block;
-color: black;
-width: 200px;
-height: 80px;
-margin: 20px;
+.createcard textarea {
+  display: block;
+  color: black;
+  width: 200px;
+  height: 80px;
+  margin: 20px;
 }
