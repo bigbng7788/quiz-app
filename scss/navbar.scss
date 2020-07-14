@@ -1,0 +1,21 @@
+.footer__nav a {
+  flex: auto;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+/* Change color on hover */
+.footer__nav a:hover {
+  border: 1px solid rgb(142, 142, 147);
+  color: lightseagreen;
+  font-weight: bold;
+}
+
+/* Active/current link */
+.footer__nav--active a.active {
+  background-color: lightseagreen;
+  color: black;
+  font-weight: bold;
+}

@@ -1,9 +1,15 @@
-
 .card__bookmark {
-    display: inline;
-    text-align: right;
-    padding: 30px;
-    border: 0;
-
+  display: inline;
+  background-color: white;
+  text-align: right;
+  padding: 30px;
+  border: 0;
 }
-    
+
+.card button.active {
+  background-color: lightseagreen;
+  display: inline;
+  text-align: right;
+  padding: 30px;
+  border: 0;
+}

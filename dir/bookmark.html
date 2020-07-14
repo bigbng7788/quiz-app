@@ -7,18 +7,65 @@
     <title>Bookmark</title>
   </head>
   <body>
-
     <header><h1>Bookmark</h1></header>
 
     <main>
+      <div class="card">
+        <button class="card__bookmark active"></button>
+        <h2 class="card__headline">Question:</h2>
+        <p class="card__question">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque
+          aspernatur mollitia cum ratione quaerat. Illo esse, dolor, aliquid
+          ipsa officia quibusdam dolore dolorum tempora reprehenderit adipisci
+          numquam nesciunt. Explicabo, dolorem!
+        </p>
+        <input class="card__answer--button card" id="answer1" type="checkbox" />
+        <label for="answer1" class="card__button card__answer--trigger"></label>
+        <p class="card__answer--target">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas
+          cumque, quisquam quasi voluptate numquam magni odio dolore minima vel
+          quia placeat deleniti libero pariatur! Eaque repellat in accusantium
+          debitis rerum.
+        </p>
 
-      </main>
-    <footer>
-      <nav>
-        <a href="/index.html">home</a>
-        <a href="/dir/bookmark.html">bookmark</a>
-        <a href="/dir/create.html">create</a>
-        <a href="/dir/profil.html">profil</a>
+        <div class="card__taglist">
+          <tag class="card__tag">tag1</tag>
+          <tag class="card__tag">tag2</tag>
+          <tag class="card__tag">tag3</tag>
+          <tag class="card__tag">tag4</tag>
+        </div>
+      </div>
+
+      <div class="card">
+        <button class="card__bookmark active"></button>
+        <h2 class="card__headline">Question:</h2>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque
+        aspernatur mollitia cum ratione quaerat. Illo esse, dolor, aliquid ipsa
+        officia quibusdam dolore dolorum tempora reprehenderit adipisci numquam
+        nesciunt. Explicabo, dolorem!
+        <input class="card__answer--button card" id="answer2" type="checkbox" />
+        <label for="answer2" class="card__answer--trigger"></label>
+        <p class="card__answer--target">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas
+          cumque, quisquam quasi voluptate numquam magni odio dolore minima vel
+          quia placeat deleniti libero pariatur! Eaque repellat in accusantium
+          debitis rerum.
+        </p>
+
+        <div class="card__taglist">
+          <tag class="card__tag">tag1</tag>
+          <tag class="card__tag">tag2</tag>
+          <tag class="card__tag">tag3</tag>
+          <tag class="card__tag">tag4</tag>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <nav class="footer__nav footer__nav--active">
+        <a class="footer__link" href="/index.html">home</a>
+        <a class="footer__link active" href="/dir/bookmark.html">bookmark</a>
+        <a class="footer__link" href="/dir/create.html">create</a>
+        <a class="footer__link" href="/dir/profil.html">profil</a>
       </nav>
     </footer>
   </body>
