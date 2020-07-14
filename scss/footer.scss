@@ -1,0 +1,19 @@
+
+footer {
+    grid-column: 1/-1;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  a + a {
+    border-left: solid white 2px;
+    margin-left: 5px;
+    padding-left: 7px;
+  }
