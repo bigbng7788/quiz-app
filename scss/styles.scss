@@ -17,11 +17,12 @@ body {
 @import './header';
 
 main {
-  display: grid;
   grid-column: 1/-1;
   grid-row: 2;
   justify-self: center;
   justify-content: center;
+  max-width: 800px;
+  width: 100%;
 }
 @import './card.scss';
 
@@ -29,17 +30,23 @@ main {
 
 /* create.html styles */
 
+.createcard {
+  display: flex;
+  flex-direction: column;
+}
+
 .createcard textarea {
   display: block;
   align-self: center;
+  background-color: rgb(142, 142, 147);
   color: black;
-  width: 200px;
+  width: 90%;
   height: 80px;
   margin: 20px;
   align-content: center;
+  border: 0;
 }
 
 .createcard__button {
-  justify-self: center;
   align-self: center;
 }
