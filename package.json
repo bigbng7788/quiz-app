@@ -4,7 +4,9 @@
   "description": "A simple app with questions and answers",
   "main": "index.js",
   "scripts": {
-  "start": "serve ."
+    "start": "serve .",
+    "sass": "node-sass scss/styles.scss styles.css"
+    
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,8 @@
   },
   "homepage": "https://github.com/jennydely/quiz-app#readme",
   "dependencies": {
+    "node": "^14.5.0",
     "serve": "^11.3.2"
   }
 }
+
