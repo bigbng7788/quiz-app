@@ -6,7 +6,6 @@ body {
   font-size: 112.5%;
   background-color: rgb(28, 28, 30);
   color: rgb(142, 142, 147);
-  padding: 20px;
   margin: 0;
   display: grid;
   grid-template-columns: 100%;
@@ -31,3 +30,5 @@ main {
 /* create.html styles */
 
 @import './creatcard.scss';
+
+@import './profile.scss';
