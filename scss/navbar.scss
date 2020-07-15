@@ -5,15 +5,26 @@
   font-weight: bold;
   text-align: center;
   padding: 10px 5px;
+ 
 }
 
 /* Change color on hover */
-.footer__nav a:hover {
-  color: lightseagreen;
+.footer__nav a:hover .footer__img--size {
+  background-color: whitesmoke;
 }
 
 /* Active/current link */
-.footer__nav--active a.active {
+.footer__nav--active a.active .footer__img--size {
   background-color: lightseagreen;
   color: black;
 }
+
+.footer__img--size {
+  max-width: 40px;
+  max-height: 40px;
+  margin: 10px;
+}
+
+/*.footer__svg--size {
+  transform:scale(0.2); -webkit-transform:scale(0.2); -moz-transform:scale(0.2); -ms-transform:scale(0.2); -o-transform:scale(0.2);
+}*/

@@ -1,0 +1,20 @@
+.createcard {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .createcard textarea {
+    display: block;
+    align-self: center;
+    background-color: rgb(142, 142, 147);
+    color: black;
+    width: 90%;
+    height: 80px;
+    margin: 20px;
+    align-content: center;
+    border: 0;
+  }
+  
+  .createcard__button {
+    align-self: center;
+  }

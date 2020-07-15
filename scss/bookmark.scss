@@ -1,12 +1,17 @@
 .card__bookmark {
-  display: inline;
-  background-color: white;
-  text-align: right;
+  position: absolute;
+  background-image: url("../img/bookmark-white.svg");
+  background-size: contain;
   padding: 30px;
   border: 0;
-  float: right;
+  top: -20px;
+  right:-20px;
+
+
 }
 
 .card button.active {
   background-color: lightseagreen;
+  background-image: url("../img/bookmark-white.svg");
+  background-size: contain;
 }
