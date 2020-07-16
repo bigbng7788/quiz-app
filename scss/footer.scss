@@ -3,11 +3,12 @@ footer {
   grid-row: 3;
   display: flex;
   overflow: hidden;
-  position: sticky;
+  position: fixed;
   bottom: 0;
   justify-content: center;
   align-items: center;
   background-color: rgb(142, 142, 147);
+  width: 100%;
 }
 
 .footer a + a {

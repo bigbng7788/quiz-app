@@ -1,36 +1,33 @@
 .mainprofile {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 40px 0;
     margin-top: 20px;
+    padding: 40px 0;
+    align-items: center;
     text-align: justify;
-}
-
-.mainprofile__text {
-    margin-bottom: 40px;
-}
-.mainprofile__imgname {
-    position: absolute;
    
 }
 
+
 .mainprofile__img {
-    display: inline-flex;
+  display:flex;
+  margin-top: 20px;
     min-width: 300px;
     min-height: 300px;
     background-image: url(/img/profil.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius:100px;
+    
+}
+.mainprofile__name {
+  text-align: center;
 }
 
-.mainprofile__name {
-    display: inline-flex;
-    position: relative;
-    right: -40px;
-    top:-155px;
+.mainprofile__text {
+  margin: 40px;
 }
+
 
 .mainprofile__text--read-more-button {
     display: none;
@@ -65,7 +62,9 @@
     line-height: 2;
   }
 
-
+.mainprofile__skills {
+  margin: 40px;
+}
     .bubbels {
         display: flex;
         flex-wrap: wrap;
@@ -83,8 +82,7 @@
 
       .mainprofile__button {
           align-self: center;
-          margin: 20px ;
-          background-color: lightseagreen;
+          background-color: rgba(32,178,170,0.7);
           border: 0;
           font-size: larger;
           padding: 10px;

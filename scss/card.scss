@@ -1,9 +1,10 @@
 .card {
-  margin: 60px;
+  margin: 40px;
   padding: 20px;
-  border: solid 4px;
+  border: solid 2px;
   border-radius: 20px;
   position: relative;
+  background-color: rgba(2, 48, 2,3);
 }
 
 @import './bookmark.scss';
@@ -19,4 +20,17 @@
   display: flex;
   justify-content: space-evenly;
   align-self: center;
+  padding: 0;
+}
+
+.card__tag {
+list-style: none;
+display: flex;
+justify-content: space-evenly;
+align-self: center;
+background-color: rgb(142, 142, 147);
+color: black;
+border-radius: 6px;
+padding: 4px;
+margin: 4px;
 }
