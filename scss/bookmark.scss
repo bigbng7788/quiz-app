@@ -1,17 +1,31 @@
-.card__bookmark {
-  position: absolute;
-  background-image: url("../img/bookmark-white.svg");
-  background-size: contain;
-  padding: 30px;
-  border: 0;
-  top: -20px;
-  right:-20px;
-
-
+.card svg{
+width: 40%;
+height: auto;
 }
 
-.card button.active {
-  background-color: lightseagreen;
-  background-image: url("../img/bookmark-white.svg");
-  background-size: contain;
+
+.card__bookmark--on[type="checkbox"]:checked + label > svg {
+ fill: lightseagreen;
+}
+
+.card__bookmark--on {
+position: absolute;
+fill: white;
+right: 0;
+top: -4px;
+fill: lightseagreen;
+ }
+
+ .card__bookmark--off[type="checkbox"]:checked + label > svg {
+  fill: white;
+ }
+.card__bookmark--off {
+position: absolute;
+fill: white;
+right: 0;
+top: -4px;
+}
+
+.card__bookmark--none {
+  display:none;
 }

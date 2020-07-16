@@ -2,15 +2,11 @@
   box-sizing: border-box;
 }
 
-body {
-  font-size: 112.5%;
-  background-color: rgb(28, 28, 30);
-  color: rgb(142, 142, 147);
-  margin: 0;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 48px auto 48px;
-  justify-content: center;
+body{
+  font-size:112.5%;
+  background-color:#1c1c1e;
+  color:#8e8e93;
+  margin:0;
 }
 
 @import './header';
