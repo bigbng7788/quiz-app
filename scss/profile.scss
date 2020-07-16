@@ -71,12 +71,12 @@
       }
       
       .bubbels div {
-        justify-content: space-evenly;
+        padding: 4px;
+        margin: 4px;
         background-color: rgb(142, 142, 147);
         color: black;
         border-radius: 6px;
-        padding: 4px;
-        margin: 4px;
+        justify-content: space-evenly;
       }
 
 
@@ -84,8 +84,8 @@
           align-self: center;
           background-color: rgba(32,178,170,0.7);
           border: 0;
-          font-size: larger;
-          padding: 10px;
           border-radius: 8px;
+          padding: 10px;
+          font-size: larger;        
           
       }
