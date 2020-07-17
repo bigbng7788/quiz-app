@@ -1,31 +1,30 @@
-.card svg{
-width: 40%;
-height: auto;
+.card svg {
+  width: 10%;
+  height: 15%;
 }
 
-
-.card__bookmark--on[type="checkbox"]:checked + label > svg {
- fill: lightseagreen;
+.card__bookmark--on[type='checkbox']:checked + label > svg {
+  fill: lightseagreen;
 }
 
 .card__bookmark--on {
-position: absolute;
-fill: white;
-right: 0;
-top: -4px;
-fill: lightseagreen;
- }
-
- .card__bookmark--off[type="checkbox"]:checked + label > svg {
+  position: absolute;
   fill: white;
- }
+  right: 0;
+  top: -10px;
+  fill: lightseagreen;
+}
+
+.card__bookmark--off[type='checkbox']:checked + label > svg {
+  fill: white;
+}
 .card__bookmark--off {
-position: absolute;
-fill: white;
-right: 0;
-top: -4px;
+  position: absolute;
+  fill: white;
+  right: 8px;
+  top: -18px;
 }
 
 .card__bookmark--none {
-  display:none;
+  display: none;
 }
