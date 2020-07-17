@@ -2,4 +2,4 @@
 
 see the quizz app here:
 
-https://jennydely.github.io/Quiz-app
+https://jennydely.github.io/quiz-app/
