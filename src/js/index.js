@@ -1,5 +1,5 @@
 
-
+// Bookmarks
 const bookmark1 = document.querySelector('#bookmark1')
 bookmark1.addEventListener('click', () => { 
     bookmark1.classList.toggle('card__bookmark--on')
@@ -25,6 +25,7 @@ bookmark5.addEventListener('click', () => {
     bookmark5.classList.toggle('card__bookmark--on')
 })
 
+//Navigation const
 const mainHome = document.querySelector('#maindashboard')
 const mainBookmark = document.querySelector('#mainbookmark')
 const mainCreate = document.querySelector('#maincreate')
@@ -35,6 +36,7 @@ const navBookmark = document.querySelector('#nav_bookmark')
 const navCreate = document.querySelector('#nav_create')
 const navProfile = document.querySelector('#nav_profile')
 
+//Hide all pages
 const hideAllSections = () => {
     mainHome.classList.add('dn')
     mainBookmark.classList.add('dn')
@@ -42,6 +44,7 @@ const hideAllSections = () => {
     mainProfile.classList.add('dn')
 }
 
+//Remove all active colors of the navigation
 const inactiveAllSections = () => {
     navHome.classList.remove('nav--active')
     navBookmark.classList.remove('nav--active')
@@ -49,7 +52,7 @@ const inactiveAllSections = () => {
     navProfile.classList.remove('nav--active')
 }
 
-
+//Navigation functions
 navHome.addEventListener('click', () => {
     hideAllSections()
     inactiveAllSections()
@@ -78,12 +81,10 @@ navProfile.addEventListener('click', () => {
     navProfile.classList.add('nav--active')
 })
 
-
-
+//Card buttons for the answers
 const showAnswerButton1 = document.querySelector('.card__showanswer1')
 const answerText1 = document.querySelector('.card__answer1')
 const hideButton1 = document.querySelector('.card__hideanswer1')
-
 
 showAnswerButton1.addEventListener('click', () => { 
     answerText1.classList.remove('dn')
@@ -97,10 +98,10 @@ hideButton1.addEventListener('click', () => {
     hideButton1.classList.add('dn')
 })
 
+
 const showAnswerButton2 = document.querySelector('.card__showanswer2')
 const answerText2 = document.querySelector('.card__answer2')
 const hideButton2 = document.querySelector('.card__hideanswer2')
-
 
 showAnswerButton2.addEventListener('click', () => { 
     answerText2.classList.remove('dn')
@@ -114,10 +115,10 @@ hideButton2.addEventListener('click', () => {
     hideButton2.classList.add('dn')
 })
 
+
 const showAnswerButton3 = document.querySelector('.card__showanswer3')
 const answerText3 = document.querySelector('.card__answer3')
 const hideButton3 = document.querySelector('.card__hideanswer3')
-
 
 showAnswerButton3.addEventListener('click', () => { 
     answerText3.classList.remove('dn')
@@ -131,10 +132,10 @@ hideButton3.addEventListener('click', () => {
     hideButton3.classList.add('dn')
 })
 
+
 const showAnswerButton4 = document.querySelector('.card__showanswer4')
 const answerText4 = document.querySelector('.card__answer4')
 const hideButton4 = document.querySelector('.card__hideanswer4')
-
 
 showAnswerButton4.addEventListener('click', () => { 
     answerText4.classList.remove('dn')
@@ -148,10 +149,10 @@ hideButton4.addEventListener('click', () => {
     hideButton4.classList.add('dn')
 })
 
+
 const showAnswerButton5 = document.querySelector('.card__showanswer5')
 const answerText5 = document.querySelector('.card__answer5')
 const hideButton5 = document.querySelector('.card__hideanswer5')
-
 
 showAnswerButton5.addEventListener('click', () => { 
     answerText5.classList.remove('dn')
@@ -165,6 +166,8 @@ hideButton5.addEventListener('click', () => {
     hideButton5.classList.add('dn')
 })
 
+
+//Create new card - use the submit button to clear inputs
 const cardQuestion1 = document.querySelector('.card__question1')
 const cardAnswer1 = document.querySelector('.answer1')
 const cardTags1 = document.querySelector('.tags1')
@@ -176,7 +179,9 @@ cardSubmitButton1.addEventListener('submit', (event) => {
     cardAnswer1.value = ''
     cardTags1.value = ''
   })
+  
 
+  //Readmore button for the profile biography
   const showReadMoreBio = document.querySelector('.readmore__button')
   const readMoreTextBio = document.querySelector('.readmorebio__text')
   const readLessBio = document.querySelector('.readless__button')
