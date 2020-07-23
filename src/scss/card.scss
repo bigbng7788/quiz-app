@@ -7,14 +7,11 @@
   background-color: rgba(2, 48, 2, 3);
 }
 
-@import './bookmark.scss';
-
+/* card subheadlinen */
 .card h2 {
   margin: 0;
   padding: 10px 0;
 }
-
-@import './answerbutton.scss';
 
 .card__taglist {
   display: flex;
@@ -35,3 +32,7 @@
   padding: 4px;
   margin: 4px;
 }
+
+@import './bookmark.scss';
+@import './answerbutton.scss';
+@import './creatcard.scss';

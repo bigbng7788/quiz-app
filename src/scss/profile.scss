@@ -1,0 +1,86 @@
+
+.mainprofile{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 40px 0;
+  align-items: center;
+  text-align: justify;
+}
+
+/* the small profilpicture */
+.mainprofile__img {
+  display: flex;
+  margin-top: 20px;
+  min-width: 300px;
+  min-height: 300px;
+  background-image: url(/img/profil.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100px;
+}
+
+/* picture underline */
+.mainprofile__name {
+  text-align: center;
+}
+    /* skill bubbels */
+    .bubbels {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .bubbels div {
+      padding: 4px;
+      margin: 4px;
+      background-color: rgb(142, 142, 147);
+      color: black;
+      border-radius: 6px;
+      justify-content: space-evenly;
+    }
+
+  /* logout button */
+    .button--logout {
+      align-self: center;
+      background-color: rgba(32, 178, 170, 0.7);
+      border: 0;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: larger;
+    }
+
+.mainprmainprofile__text--read-more-button
+  ~ .mainprofile__text--read-more-trigger:before {
+  content: 'Weiter lesen';
+}
+
+.mainprofile__text--read-more-button:checked
+  ~ .mainprofile__text--read-more-trigger:before {
+  content: 'Einklappen';
+}
+
+.mainprofile__text--read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  font-size: 0.9em;
+  color: lightseagreen;
+  line-height: 2;
+}ofile__text--read-more-button {
+  display: none;
+}
+.mainprofile__text--read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: 0.2s ease;
+}
+
+.mainprofile__text--read-more-button:checked
+  ~ .mainprofile__text--read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
+
+
