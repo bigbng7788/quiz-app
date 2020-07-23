@@ -177,11 +177,10 @@ cardSubmitButton1.addEventListener('submit', (event) => {
     cardTags1.value = ''
   })
 
-  const showReadMoreBio = document.querySelector('.creadmore__button')
+  const showReadMoreBio = document.querySelector('.readmore__button')
   const readMoreTextBio = document.querySelector('.readmorebio__text')
-  const readLessBio = document.querySelector('.readless_button')
+  const readLessBio = document.querySelector('.readless__button')
 
-  
   showReadMoreBio.addEventListener('click', () => { 
       readMoreTextBio.classList.remove('dn')
       showReadMoreBio.classList.add('dn')

@@ -142,9 +142,9 @@ cardSubmitButton1.addEventListener('submit', function (event) {
   cardAnswer1.value = '';
   cardTags1.value = '';
 });
-var showReadMoreBio = document.querySelector('.creadmore__button');
+var showReadMoreBio = document.querySelector('.readmore__button');
 var readMoreTextBio = document.querySelector('.readmorebio__text');
-var readLessBio = document.querySelector('.readless_button');
+var readLessBio = document.querySelector('.readless__button');
 showReadMoreBio.addEventListener('click', function () {
   readMoreTextBio.classList.remove('dn');
   showReadMoreBio.classList.add('dn');
