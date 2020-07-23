@@ -1,4 +1,4 @@
-const { format } = require("path")
+
 
 // Bookmarks
 const bookmark1 = document.querySelector('#bookmark1')
@@ -82,7 +82,7 @@ navProfile.addEventListener('click', () => {
     navProfile.classList.add('nav--active')
 })
 
-//Card buttons for the answers
+//Card buttons to show the answers
 const showAnswerButton1 = document.querySelector('.card__showanswer1')
 const answerText1 = document.querySelector('.card__answer1')
 const hideButton1 = document.querySelector('.card__hideanswer1')
