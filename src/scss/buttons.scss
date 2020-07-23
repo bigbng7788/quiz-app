@@ -1,0 +1,56 @@
+
+
+/* bookmark */
+.createcard__button {
+  display: block;
+  align-self: center;
+  margin: 30px auto 5px auto;
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  font-size: larger;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+/* the whole look of the show button*/
+.show__button {
+  display: block;
+  align-self: center;
+  margin: 20px auto 10px auto;
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  font-size: medium;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+/* the whole look of the hide button*/
+.hide__button {
+  display: block;
+  align-self: center;
+  margin: 20px auto 10px auto;
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  font-size: medium;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+/* logout button on profile page */
+.button--logout {
+  align-self: center;
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: larger;
+}
+
+/* dark and light mode buttons */
+.button--light, .button--dark {
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: larger;
+}

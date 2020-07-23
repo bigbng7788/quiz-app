@@ -5,6 +5,32 @@ body {
   color: #8e8e93;
   justify-content: center;
   align-items: center;
+  margin:0;
+}
+
+.body--lightmode {
+  background-color: whitesmoke;
+  color: #1c1c1e;
+}
+
+.body--lightmode button {
+  background-color: #13185ed7;
+  color: whitesmoke;
+
+}
+
+.body--lightmode .card {
+    background-color: rgba(142, 196, 212, 0.5);
+  }
+  
+
+.body--lightmode .card__bookmark--on {
+  fill: #13185ed7;
+}
+
+.body--lightmode .nav--active img{
+  background-color: #13185ed7;
+  color: whitesmoke;
 }
 
 header {

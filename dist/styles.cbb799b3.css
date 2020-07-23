@@ -8,6 +8,30 @@ body {
   color: #8e8e93;
   justify-content: center;
   align-items: center;
+  margin: 0;
+}
+
+.body--lightmode {
+  background-color: whitesmoke;
+  color: #1c1c1e;
+}
+
+.body--lightmode button {
+  background-color: #13185ed7;
+  color: whitesmoke;
+}
+
+.body--lightmode .card {
+  background-color: rgba(142, 196, 212, 0.5);
+}
+
+.body--lightmode .card__bookmark--on {
+  fill: #13185ed7;
+}
+
+.body--lightmode .nav--active img {
+  background-color: #13185ed7;
+  color: whitesmoke;
 }
 
 header {
@@ -44,6 +68,61 @@ footer {
   align-items: center;
   background-color: #8e8e93;
   width: 100%;
+}
+
+/* bookmark */
+.createcard__button {
+  display: block;
+  align-self: center;
+  margin: 30px auto 5px auto;
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  font-size: larger;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+/* the whole look of the show button*/
+.show__button {
+  display: block;
+  align-self: center;
+  margin: 20px auto 10px auto;
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  font-size: medium;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+/* the whole look of the hide button*/
+.hide__button {
+  display: block;
+  align-self: center;
+  margin: 20px auto 10px auto;
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  font-size: medium;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+/* logout button on profile page */
+.button--logout {
+  align-self: center;
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: larger;
+}
+
+/* dark and light mode buttons */
+.button--light, .button--dark {
+  background-color: rgba(32, 178, 170, 0.7);
+  border: 0;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: larger;
 }
 
 .card {
@@ -99,30 +178,6 @@ footer {
   top: -18px;
 }
 
-/* the whole look of the show button*/
-.show__button {
-  display: block;
-  align-self: center;
-  margin: 20px auto 10px auto;
-  background-color: rgba(32, 178, 170, 0.7);
-  border: 0;
-  font-size: medium;
-  padding: 4px;
-  border-radius: 8px;
-}
-
-/* the whole look of the hide button*/
-.hide__button {
-  display: block;
-  align-self: center;
-  margin: 20px auto 10px auto;
-  background-color: rgba(32, 178, 170, 0.7);
-  border: 0;
-  font-size: medium;
-  padding: 4px;
-  border-radius: 8px;
-}
-
 .createcard--on {
   display: flex;
   flex-direction: column;
@@ -151,17 +206,6 @@ footer {
   align-content: center;
   border: 0;
   resize: none;
-}
-
-.createcard__button {
-  display: block;
-  align-self: center;
-  margin: 30px auto 5px auto;
-  background-color: rgba(32, 178, 170, 0.7);
-  border: 0;
-  font-size: larger;
-  padding: 6px;
-  border-radius: 8px;
 }
 
 .mainprofile {
@@ -203,50 +247,6 @@ footer {
   color: black;
   border-radius: 6px;
   justify-content: space-evenly;
-}
-
-/* logout button */
-.button--logout {
-  align-self: center;
-  background-color: rgba(32, 178, 170, 0.7);
-  border: 0;
-  border-radius: 8px;
-  padding: 10px;
-  font-size: larger;
-}
-
-.mainprmainprofile__text--read-more-button ~ .mainprofile__text--read-more-trigger:before {
-  content: "Weiter lesen";
-}
-
-.mainprofile__text--read-more-button:checked ~ .mainprofile__text--read-more-trigger:before {
-  content: "Einklappen";
-}
-
-.mainprofile__text--read-more-trigger {
-  cursor: pointer;
-  display: inline-block;
-  padding: 0;
-  font-size: 0.9em;
-  color: lightseagreen;
-  line-height: 2;
-}
-
-ofile__text--read-more-button {
-  display: none;
-}
-
-.mainprofile__text--read-more-target {
-  opacity: 0;
-  max-height: 0;
-  font-size: 0;
-  transition: 0.2s ease;
-}
-
-.mainprofile__text--read-more-button:checked ~ .mainprofile__text--read-more-target {
-  opacity: 1;
-  font-size: inherit;
-  max-height: 999em;
 }
 
 .dn {
