@@ -1,3 +1,4 @@
+const { format } = require("path")
 
 // Bookmarks
 const bookmark1 = document.querySelector('#bookmark1')
@@ -171,13 +172,11 @@ hideButton5.addEventListener('click', () => {
 const cardQuestion1 = document.querySelector('.card__question1')
 const cardAnswer1 = document.querySelector('.answer1')
 const cardTags1 = document.querySelector('.tags1')
-const cardSubmitButton1 = document.querySelector('.createcard__button')
+const formCreateCard = document.querySelector('.formular__createcard')
 
-cardSubmitButton1.addEventListener('submit', (event) => {
+formCreateCard.addEventListener('submit', function(event) {
     event.preventDefault ()
-    cardQuestion1.value = ''
-    cardAnswer1.value = ''
-    cardTags1.value = ''
+     form.reset()
   })
   
 
