@@ -117,176 +117,266 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/js/index.js":[function(require,module,exports) {
-// Bookmarks
+})({"src/js/util.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getAll = getAll;
+
 function getAll(selector) {
   return document.querySelectorAll(selector);
 }
+},{}],"src/js/bookmarks.js":[function(require,module,exports) {
+"use strict";
 
-var bookmarkList = getAll('.bookmark');
-bookmarkList.forEach(bookmarkToggle);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.bookmarks = bookmarks;
 
-function bookmarkToggle(ausgesuchtBookmark) {
-  ausgesuchtBookmark.addEventListener('click', function () {
-    ausgesuchtBookmark.classList.toggle('card__bookmark--on');
+var _util = require("./util.js");
+
+(0, _util.getAll)();
+
+function bookmarks() {
+  // Bookmarks
+  var bookmarkList = (0, _util.getAll)('.bookmark');
+  bookmarkList.forEach(bookmarkToggle);
+
+  function bookmarkToggle(ausgesuchtBookmark) {
+    ausgesuchtBookmark.addEventListener('click', function () {
+      ausgesuchtBookmark.classList.toggle('card__bookmark--on');
+    });
+  }
+}
+},{"./util.js":"src/js/util.js"}],"src/js/cardAnswerButtons.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.cardAnswerButtons = cardAnswerButtons;
+
+function cardAnswerButtons() {
+  //Card buttons to show the answers
+  var showAnswerButton1 = document.querySelector('.card__showanswer1');
+  var answerText1 = document.querySelector('.card__answer1');
+  var hideButton1 = document.querySelector('.card__hideanswer1');
+  showAnswerButton1.addEventListener('click', function () {
+    answerText1.classList.remove('dn');
+    showAnswerButton1.classList.add('dn');
+    hideButton1.classList.remove('dn');
   });
-} //Navigation const
+  hideButton1.addEventListener('click', function () {
+    answerText1.classList.add('dn');
+    showAnswerButton1.classList.remove('dn');
+    hideButton1.classList.add('dn');
+  });
+  var showAnswerButton2 = document.querySelector('.card__showanswer2');
+  var answerText2 = document.querySelector('.card__answer2');
+  var hideButton2 = document.querySelector('.card__hideanswer2');
+  showAnswerButton2.addEventListener('click', function () {
+    answerText2.classList.remove('dn');
+    showAnswerButton2.classList.add('dn');
+    hideButton2.classList.remove('dn');
+  });
+  hideButton2.addEventListener('click', function () {
+    answerText2.classList.add('dn');
+    showAnswerButton2.classList.remove('dn');
+    hideButton2.classList.add('dn');
+  });
+  var showAnswerButton3 = document.querySelector('.card__showanswer3');
+  var answerText3 = document.querySelector('.card__answer3');
+  var hideButton3 = document.querySelector('.card__hideanswer3');
+  showAnswerButton3.addEventListener('click', function () {
+    answerText3.classList.remove('dn');
+    showAnswerButton3.classList.add('dn');
+    hideButton3.classList.remove('dn');
+  });
+  hideButton3.addEventListener('click', function () {
+    answerText3.classList.add('dn');
+    showAnswerButton3.classList.remove('dn');
+    hideButton3.classList.add('dn');
+  });
+  var showAnswerButton4 = document.querySelector('.card__showanswer4');
+  var answerText4 = document.querySelector('.card__answer4');
+  var hideButton4 = document.querySelector('.card__hideanswer4');
+  showAnswerButton4.addEventListener('click', function () {
+    answerText4.classList.remove('dn');
+    showAnswerButton4.classList.add('dn');
+    hideButton4.classList.remove('dn');
+  });
+  hideButton4.addEventListener('click', function () {
+    answerText4.classList.add('dn');
+    showAnswerButton4.classList.remove('dn');
+    hideButton4.classList.add('dn');
+  });
+  var showAnswerButton5 = document.querySelector('.card__showanswer5');
+  var answerText5 = document.querySelector('.card__answer5');
+  var hideButton5 = document.querySelector('.card__hideanswer5');
+  showAnswerButton5.addEventListener('click', function () {
+    answerText5.classList.remove('dn');
+    showAnswerButton5.classList.add('dn');
+    hideButton5.classList.remove('dn');
+  });
+  hideButton5.addEventListener('click', function () {
+    answerText5.classList.add('dn');
+    showAnswerButton5.classList.remove('dn');
+    hideButton5.classList.add('dn');
+  });
+}
+},{}],"src/js/form.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.form = form;
+
+function form() {
+  //Create new card - use the submit button to clear inputs
+  var cardQuestion1 = document.querySelector('.card__question1');
+  var cardAnswer1 = document.querySelector('.answer1');
+  var cardTags1 = document.querySelector('.tags1');
+  var formCreateCard = document.querySelector('.formular__createcard');
+  var form = document.querySelector('form');
+  formCreateCard.addEventListener('submit', function (event) {
+    event.preventDefault();
+    form.reset();
+  });
+}
+},{}],"src/js/mode.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.mode = mode;
+
+function mode() {
+  /* dark and light mode */
+  var body = document.querySelector('body');
+  var buttonLightMode = document.querySelector('.button--light');
+  var buttonDarkMode = document.querySelector('.button--dark');
+  buttonLightMode.addEventListener('click', function () {
+    body.classList.add('body--lightmode');
+    buttonDarkMode.classList.remove('dn');
+    buttonLightMode.classList.add('dn');
+  });
+  buttonDarkMode.addEventListener('click', function () {
+    body.classList.remove('body--lightmode');
+    buttonDarkMode.classList.add('dn');
+    buttonLightMode.classList.remove('dn');
+  });
+}
+},{}],"src/js/readMoreButtonBio.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.readMoreButtonBio = readMoreButtonBio;
+
+function readMoreButtonBio() {
+  //Readmore button for the profile biography
+  var showReadMoreBio = document.querySelector('.readmore__button');
+  var readMoreTextBio = document.querySelector('.readmorebio__text');
+  var readLessBio = document.querySelector('.readless__button');
+  showReadMoreBio.addEventListener('click', function () {
+    readMoreTextBio.classList.remove('dn');
+    showReadMoreBio.classList.add('dn');
+    readLessBio.classList.remove('dn');
+  });
+  readLessBio.addEventListener('click', function () {
+    readMoreTextBio.classList.add('dn');
+    showReadMoreBio.classList.remove('dn');
+    readLessBio.classList.add('dn');
+  });
+}
+},{}],"src/js/navigation.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.navigation = navigation;
+
+function navigation() {
+  //Navigation const
+  var mainHome = document.querySelector('#maindashboard');
+  var mainBookmark = document.querySelector('#mainbookmark');
+  var mainCreate = document.querySelector('#maincreate');
+  var mainProfile = document.querySelector('#mainprofile');
+  var navHome = document.querySelector('#nav_home');
+  var navBookmark = document.querySelector('#nav_bookmark');
+  var navCreate = document.querySelector('#nav_create');
+  var navProfile = document.querySelector('#nav_profile'); //Hide all pages
+
+  var hideAllSections = function hideAllSections() {
+    mainHome.classList.add('dn');
+    mainBookmark.classList.add('dn');
+    mainCreate.classList.add('dn');
+    mainProfile.classList.add('dn');
+  }; //Remove all active colors of the navigation
 
 
-var mainHome = document.querySelector('#maindashboard');
-var mainBookmark = document.querySelector('#mainbookmark');
-var mainCreate = document.querySelector('#maincreate');
-var mainProfile = document.querySelector('#mainprofile');
-var navHome = document.querySelector('#nav_home');
-var navBookmark = document.querySelector('#nav_bookmark');
-var navCreate = document.querySelector('#nav_create');
-var navProfile = document.querySelector('#nav_profile'); //Hide all pages
-
-var hideAllSections = function hideAllSections() {
-  mainHome.classList.add('dn');
-  mainBookmark.classList.add('dn');
-  mainCreate.classList.add('dn');
-  mainProfile.classList.add('dn');
-}; //Remove all active colors of the navigation
+  var inactiveAllSections = function inactiveAllSections() {
+    navHome.classList.remove('nav--active');
+    navBookmark.classList.remove('nav--active');
+    navCreate.classList.remove('nav--active');
+    navProfile.classList.remove('nav--active');
+  }; //Navigation functions
 
 
-var inactiveAllSections = function inactiveAllSections() {
-  navHome.classList.remove('nav--active');
-  navBookmark.classList.remove('nav--active');
-  navCreate.classList.remove('nav--active');
-  navProfile.classList.remove('nav--active');
-}; //Navigation functions
+  navHome.addEventListener('click', function () {
+    hideAllSections();
+    inactiveAllSections();
+    mainHome.classList.remove('dn');
+    navHome.classList.add('nav--active');
+  });
+  navBookmark.addEventListener('click', function () {
+    hideAllSections();
+    inactiveAllSections();
+    mainBookmark.classList.remove('dn');
+    navBookmark.classList.add('nav--active');
+  });
+  navCreate.addEventListener('click', function () {
+    hideAllSections();
+    inactiveAllSections();
+    mainCreate.classList.remove('dn');
+    navCreate.classList.add('nav--active');
+  });
+  navProfile.addEventListener('click', function () {
+    hideAllSections();
+    inactiveAllSections();
+    mainProfile.classList.remove('dn');
+    navProfile.classList.add('nav--active');
+  });
+}
+},{}],"src/js/index.js":[function(require,module,exports) {
+"use strict";
 
+var _bookmarks = require("./bookmarks.js");
 
-navHome.addEventListener('click', function () {
-  hideAllSections();
-  inactiveAllSections();
-  mainHome.classList.remove('dn');
-  navHome.classList.add('nav--active');
-});
-navBookmark.addEventListener('click', function () {
-  hideAllSections();
-  inactiveAllSections();
-  mainBookmark.classList.remove('dn');
-  navBookmark.classList.add('nav--active');
-});
-navCreate.addEventListener('click', function () {
-  hideAllSections();
-  inactiveAllSections();
-  mainCreate.classList.remove('dn');
-  navCreate.classList.add('nav--active');
-});
-navProfile.addEventListener('click', function () {
-  hideAllSections();
-  inactiveAllSections();
-  mainProfile.classList.remove('dn');
-  navProfile.classList.add('nav--active');
-}); //Card buttons to show the answers
+var _cardAnswerButtons = require("./cardAnswerButtons.js");
 
-var showAnswerButton1 = document.querySelector('.card__showanswer1');
-var answerText1 = document.querySelector('.card__answer1');
-var hideButton1 = document.querySelector('.card__hideanswer1');
-showAnswerButton1.addEventListener('click', function () {
-  answerText1.classList.remove('dn');
-  showAnswerButton1.classList.add('dn');
-  hideButton1.classList.remove('dn');
-});
-hideButton1.addEventListener('click', function () {
-  answerText1.classList.add('dn');
-  showAnswerButton1.classList.remove('dn');
-  hideButton1.classList.add('dn');
-});
-var showAnswerButton2 = document.querySelector('.card__showanswer2');
-var answerText2 = document.querySelector('.card__answer2');
-var hideButton2 = document.querySelector('.card__hideanswer2');
-showAnswerButton2.addEventListener('click', function () {
-  answerText2.classList.remove('dn');
-  showAnswerButton2.classList.add('dn');
-  hideButton2.classList.remove('dn');
-});
-hideButton2.addEventListener('click', function () {
-  answerText2.classList.add('dn');
-  showAnswerButton2.classList.remove('dn');
-  hideButton2.classList.add('dn');
-});
-var showAnswerButton3 = document.querySelector('.card__showanswer3');
-var answerText3 = document.querySelector('.card__answer3');
-var hideButton3 = document.querySelector('.card__hideanswer3');
-showAnswerButton3.addEventListener('click', function () {
-  answerText3.classList.remove('dn');
-  showAnswerButton3.classList.add('dn');
-  hideButton3.classList.remove('dn');
-});
-hideButton3.addEventListener('click', function () {
-  answerText3.classList.add('dn');
-  showAnswerButton3.classList.remove('dn');
-  hideButton3.classList.add('dn');
-});
-var showAnswerButton4 = document.querySelector('.card__showanswer4');
-var answerText4 = document.querySelector('.card__answer4');
-var hideButton4 = document.querySelector('.card__hideanswer4');
-showAnswerButton4.addEventListener('click', function () {
-  answerText4.classList.remove('dn');
-  showAnswerButton4.classList.add('dn');
-  hideButton4.classList.remove('dn');
-});
-hideButton4.addEventListener('click', function () {
-  answerText4.classList.add('dn');
-  showAnswerButton4.classList.remove('dn');
-  hideButton4.classList.add('dn');
-});
-var showAnswerButton5 = document.querySelector('.card__showanswer5');
-var answerText5 = document.querySelector('.card__answer5');
-var hideButton5 = document.querySelector('.card__hideanswer5');
-showAnswerButton5.addEventListener('click', function () {
-  answerText5.classList.remove('dn');
-  showAnswerButton5.classList.add('dn');
-  hideButton5.classList.remove('dn');
-});
-hideButton5.addEventListener('click', function () {
-  answerText5.classList.add('dn');
-  showAnswerButton5.classList.remove('dn');
-  hideButton5.classList.add('dn');
-}); //Create new card - use the submit button to clear inputs
+var _form = require("./form.js");
 
-var cardQuestion1 = document.querySelector('.card__question1');
-var cardAnswer1 = document.querySelector('.answer1');
-var cardTags1 = document.querySelector('.tags1');
-var formCreateCard = document.querySelector('.formular__createcard');
-formCreateCard.addEventListener('submit', function (event) {
-  event.preventDefault();
-  form.reset();
-}); //Readmore button for the profile biography
+var _mode = require("./mode.js");
 
-var showReadMoreBio = document.querySelector('.readmore__button');
-var readMoreTextBio = document.querySelector('.readmorebio__text');
-var readLessBio = document.querySelector('.readless__button');
-showReadMoreBio.addEventListener('click', function () {
-  readMoreTextBio.classList.remove('dn');
-  showReadMoreBio.classList.add('dn');
-  readLessBio.classList.remove('dn');
-});
-readLessBio.addEventListener('click', function () {
-  readMoreTextBio.classList.add('dn');
-  showReadMoreBio.classList.remove('dn');
-  readLessBio.classList.add('dn');
-});
-/* dark and light mode */
+var _readMoreButtonBio = require("./readMoreButtonBio.js");
 
-var body = document.querySelector('body');
-var buttonLightMode = document.querySelector('.button--light');
-var buttonDarkMode = document.querySelector('.button--dark');
-buttonLightMode.addEventListener('click', function () {
-  body.classList.add('body--lightmode');
-  buttonDarkMode.classList.remove('dn');
-  buttonLightMode.classList.add('dn');
-});
-buttonDarkMode.addEventListener('click', function () {
-  body.classList.remove('body--lightmode');
-  buttonDarkMode.classList.add('dn');
-  buttonLightMode.classList.remove('dn');
-});
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var _navigation = require("./navigation.js");
+
+(0, _bookmarks.bookmarks)();
+(0, _cardAnswerButtons.cardAnswerButtons)();
+(0, _form.form)();
+(0, _mode.mode)();
+(0, _readMoreButtonBio.readMoreButtonBio)();
+(0, _navigation.navigation)();
+},{"./bookmarks.js":"src/js/bookmarks.js","./cardAnswerButtons.js":"src/js/cardAnswerButtons.js","./form.js":"src/js/form.js","./mode.js":"src/js/mode.js","./readMoreButtonBio.js":"src/js/readMoreButtonBio.js","./navigation.js":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -314,7 +404,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60293" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61374" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
