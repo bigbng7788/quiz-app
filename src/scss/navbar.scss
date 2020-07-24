@@ -1,17 +1,13 @@
-
-/* Change color on hover */
-.footer__nav img:hover {
+.nav img:hover {
   background-color: white;
 }
 
-/* Change color on active img */
-.nav--active img{
+.nav--active img {
   background-color: lightseagreen;
   color: black;
 }
 
-/* Change size of the img */
-.footer__img--size {
+.nav__img--size {
   max-width: 40px;
   max-height: 40px;
   margin: 10px;

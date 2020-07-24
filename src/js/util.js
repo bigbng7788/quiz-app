@@ -1,3 +1,3 @@
 export function getAll(selector) {
-    return document.querySelectorAll(selector)
+  return document.querySelectorAll(selector)
 }

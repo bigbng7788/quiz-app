@@ -1,5 +1,4 @@
-
-.mainprofile{
+.mainprofile {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -24,17 +23,17 @@
 .mainprofile__name {
   text-align: center;
 }
-    /* skill bubbels */
-    .bubbels {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    
-    .bubbels div {
-      padding: 4px;
-      margin: 4px;
-      background-color: rgb(142, 142, 147);
-      color: black;
-      border-radius: 6px;
-      justify-content: space-evenly;
-    }
+/* skill bubbels */
+.bubbels {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bubbels div {
+  padding: 4px;
+  margin: 4px;
+  background-color: rgb(142, 142, 147);
+  color: black;
+  border-radius: 6px;
+  justify-content: space-evenly;
+}

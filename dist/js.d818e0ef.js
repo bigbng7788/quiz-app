@@ -141,13 +141,12 @@ var _util = require("./util.js");
 (0, _util.getAll)();
 
 function bookmarks() {
-  // Bookmarks
   var bookmarkList = (0, _util.getAll)('.bookmark');
   bookmarkList.forEach(bookmarkToggle);
 
   function bookmarkToggle(ausgesuchtBookmark) {
     ausgesuchtBookmark.addEventListener('click', function () {
-      ausgesuchtBookmark.classList.toggle('card__bookmark--on');
+      ausgesuchtBookmark.classList.toggle('bookmark--on');
     });
   }
 }
@@ -160,7 +159,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.cardAnswerButtons = cardAnswerButtons;
 
 function cardAnswerButtons() {
-  //Card buttons to show the answers
   var showAnswerButton1 = document.querySelector('.card__showanswer1');
   var answerText1 = document.querySelector('.card__answer1');
   var hideButton1 = document.querySelector('.card__hideanswer1');
@@ -256,7 +254,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.mode = mode;
 
 function mode() {
-  /* dark and light mode */
   var body = document.querySelector('body');
   var buttonLightMode = document.querySelector('.button--light');
   var buttonDarkMode = document.querySelector('.button--dark');
@@ -280,7 +277,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.readMoreButtonBio = readMoreButtonBio;
 
 function readMoreButtonBio() {
-  //Readmore button for the profile biography
   var showReadMoreBio = document.querySelector('.readmore__button');
   var readMoreTextBio = document.querySelector('.readmorebio__text');
   var readLessBio = document.querySelector('.readless__button');
@@ -304,7 +300,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.navigation = navigation;
 
 function navigation() {
-  //Navigation const
   var mainHome = document.querySelector('#maindashboard');
   var mainBookmark = document.querySelector('#mainbookmark');
   var mainCreate = document.querySelector('#maincreate');
@@ -312,23 +307,21 @@ function navigation() {
   var navHome = document.querySelector('#nav_home');
   var navBookmark = document.querySelector('#nav_bookmark');
   var navCreate = document.querySelector('#nav_create');
-  var navProfile = document.querySelector('#nav_profile'); //Hide all pages
+  var navProfile = document.querySelector('#nav_profile');
 
   var hideAllSections = function hideAllSections() {
     mainHome.classList.add('dn');
     mainBookmark.classList.add('dn');
     mainCreate.classList.add('dn');
     mainProfile.classList.add('dn');
-  }; //Remove all active colors of the navigation
-
+  };
 
   var inactiveAllSections = function inactiveAllSections() {
     navHome.classList.remove('nav--active');
     navBookmark.classList.remove('nav--active');
     navCreate.classList.remove('nav--active');
     navProfile.classList.remove('nav--active');
-  }; //Navigation functions
-
+  };
 
   navHome.addEventListener('click', function () {
     hideAllSections();
@@ -404,7 +397,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61374" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62075" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

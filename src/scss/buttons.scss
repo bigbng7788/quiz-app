@@ -1,5 +1,3 @@
-
-
 /* bookmark */
 .createcard__button {
   display: block;
@@ -12,7 +10,6 @@
   border-radius: 8px;
 }
 
-/* the whole look of the show button*/
 .show__button {
   display: block;
   align-self: center;
@@ -24,7 +21,6 @@
   border-radius: 8px;
 }
 
-/* the whole look of the hide button*/
 .hide__button {
   display: block;
   align-self: center;
@@ -43,14 +39,17 @@
   border: 0;
   border-radius: 8px;
   padding: 10px;
-  font-size: larger;
+  font-size: small;
 }
 
-/* dark and light mode buttons */
-.button--light, .button--dark {
+.button--light,
+.button--dark {
+  position: fixed;
+  right:15px;
   background-color: rgba(32, 178, 170, 0.7);
   border: 0;
   border-radius: 8px;
-  padding: 10px;
-  font-size: larger;
+  padding: 5px;
+  font-size: small;
+  margin-right: 5px;
 }

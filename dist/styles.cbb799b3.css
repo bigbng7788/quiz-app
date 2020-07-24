@@ -11,29 +11,6 @@ body {
   margin: 0;
 }
 
-.body--lightmode {
-  background-color: whitesmoke;
-  color: #1c1c1e;
-}
-
-.body--lightmode button {
-  background-color: #13185ed7;
-  color: whitesmoke;
-}
-
-.body--lightmode .card {
-  background-color: rgba(142, 196, 212, 0.5);
-}
-
-.body--lightmode .card__bookmark--on {
-  fill: #13185ed7;
-}
-
-.body--lightmode .nav--active img {
-  background-color: #13185ed7;
-  color: whitesmoke;
-}
-
 header {
   display: grid;
   grid-column: 1/-1;
@@ -82,7 +59,6 @@ footer {
   border-radius: 8px;
 }
 
-/* the whole look of the show button*/
 .show__button {
   display: block;
   align-self: center;
@@ -94,7 +70,6 @@ footer {
   border-radius: 8px;
 }
 
-/* the whole look of the hide button*/
 .hide__button {
   display: block;
   align-self: center;
@@ -113,16 +88,19 @@ footer {
   border: 0;
   border-radius: 8px;
   padding: 10px;
-  font-size: larger;
+  font-size: small;
 }
 
-/* dark and light mode buttons */
-.button--light, .button--dark {
+.button--light,
+.button--dark {
+  position: fixed;
+  right: 15px;
   background-color: rgba(32, 178, 170, 0.7);
   border: 0;
   border-radius: 8px;
-  padding: 10px;
-  font-size: larger;
+  padding: 5px;
+  font-size: small;
+  margin-right: 5px;
 }
 
 .card {
@@ -134,7 +112,6 @@ footer {
   background-color: #023002;
 }
 
-/* card subheadlinen */
 .card h2 {
   margin: 0;
   padding: 10px 0;
@@ -160,12 +137,13 @@ footer {
   margin: 4px;
 }
 
+/* Bookmark svg picture*/
 .card svg {
   width: 10%;
   height: 15%;
 }
 
-.card__bookmark--on {
+.bookmark--on {
   position: absolute;
   right: 0;
   top: -10px;
@@ -206,6 +184,29 @@ footer {
   align-content: center;
   border: 0;
   resize: none;
+}
+
+.body--lightmode {
+  background-color: whitesmoke;
+  color: #1c1c1e;
+}
+
+.body--lightmode button {
+  background-color: #13185ed7;
+  color: whitesmoke;
+}
+
+.body--lightmode .card {
+  background-color: rgba(142, 196, 212, 0.5);
+}
+
+.body--lightmode .card__bookmark--on {
+  fill: #13185ed7;
+}
+
+.body--lightmode .nav--active img {
+  background-color: #13185ed7;
+  color: whitesmoke;
 }
 
 .mainprofile {
@@ -257,19 +258,16 @@ footer {
   margin: 40px;
 }
 
-/* Change color on hover */
-.footer__nav img:hover {
+.nav img:hover {
   background-color: white;
 }
 
-/* Change color on active img */
 .nav--active img {
   background-color: lightseagreen;
   color: black;
 }
 
-/* Change size of the img */
-.footer__img--size {
+.nav__img--size {
   max-width: 40px;
   max-height: 40px;
   margin: 10px;

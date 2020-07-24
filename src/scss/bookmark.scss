@@ -1,20 +1,18 @@
+/* Bookmark svg picture*/
 .card svg {
   width: 10%;
   height: 15%;
 }
 
-
-.card__bookmark--on {
+.bookmark--on {
   position: absolute;
   right: 0;
   top: -10px;
   fill: lightseagreen;
 }
 
-
 .bookmark {
   position: absolute;
   right: 8px;
   top: -18px;
 }
-

@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="src/scss/styles.scss" />
   <title>Quiz App</title>
   <script defer src="src/js/index.js"></script>
-  <!--wurde früher so gemacht, wir machen es mit Babel-->
+  
 </head>
 
 <body>
-
+  <button class="button--light">Light-mode</button>
+  <button class="button--dark dn">Dark-mode</button>
   <div id="maindashboard">
     <header class="header">
       <h1>Quiz-App</h1>
@@ -190,8 +191,7 @@
           <li class="card__tag">tag4</li>
         </ul>
       </section>
-      <button class="button--light">Light-mode</button>
-      <button class="button--dark dn">Dark-mode</button>
+
     </main> 
   </div>
 
@@ -346,7 +346,6 @@
       <h1 class="header__h1">Profile</h1>
     </header>
     <main class="mainprofile">
-
       <div class="mainprofile__imgname">
         <p class="mainprofile__img">
         <h2 class="mainprofile__name">Jennifer 'Dely' Berndt</h2>
@@ -445,11 +444,11 @@
 
 
   <footer class="footer">
-    <nav class="footer__nav footer__nav--active">
-      <a id="nav_home" class="footer__link"><img class="footer__img--size" src="img/home.svg" /></a>
-      <a id="nav_bookmark" class="footer__link"><img class="footer__img--size" src="img/bookmark-white.svg" /></a>
-      <a id="nav_create" class="footer__link"><img class="footer__img--size" src="img/pencil.svg" /></a>
-      <a id="nav_profile" class="footer__link"><img class="footer__img--size" src="img/user-shape.svg" /></a>
+    <nav class="nav">
+      <a id="nav_home" class="footer__link"><img class="nav__img--size" src="img/home.svg" /></a>
+      <a id="nav_bookmark" class="footer__link"><img class="nav__img--size" src="img/bookmark-white.svg" /></a>
+      <a id="nav_create" class="footer__link"><img class="nav__img--size" src="img/pencil.svg" /></a>
+      <a id="nav_profile" class="footer__link"><img class="nav__img--size" src="img/user-shape.svg" /></a>
     </nav>
   </footer>
 </body>
