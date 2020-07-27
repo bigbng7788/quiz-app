@@ -2,7 +2,7 @@ import { getAll } from './util.js'
 getAll()
 
 export function bookmarks() {
-  const bookmarkList = getAll('.bookmark')
+  const bookmarkList = getAll('[data-js=bookmark]')
   bookmarkList.forEach(bookmarkToggle)
 
   function bookmarkToggle(ausgesuchtBookmark) {

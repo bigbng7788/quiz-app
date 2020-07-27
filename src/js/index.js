@@ -5,9 +5,9 @@ import { mode } from './mode.js'
 import { readMoreButtonBio } from './readMoreButtonBio.js'
 import { navigation } from './navigation.js'
 
-bookmarks()
 cards()
 form()
 mode()
 readMoreButtonBio()
 navigation()
+bookmarks()

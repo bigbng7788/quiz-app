@@ -141,7 +141,7 @@ var _util = require("./util.js");
 (0, _util.getAll)();
 
 function bookmarks() {
-  var bookmarkList = (0, _util.getAll)('.bookmark');
+  var bookmarkList = (0, _util.getAll)('[data-js=bookmark]');
   bookmarkList.forEach(bookmarkToggle);
 
   function bookmarkToggle(ausgesuchtBookmark) {
@@ -205,11 +205,9 @@ function createCard(_ref) {
       tags = _ref$tags === void 0 ? ['tag', 'tag2', 'tag3', 'tag4'] : _ref$tags;
   var newCard = createElement({
     className: 'card'
-  });
-  /* const bookmark = createSvg({ type: 'svg', className:"bookmark", x:"0px", y:"0px"})
-   bookmark.textContent = ''
-   */
+  }); //const bookmark = createElement({ type: 'div', className:'', target:newCard})
 
+  newCard.innerHTML = "<svg data-js=\"bookmark\" class=\"bookmark\" version=\"1.1\" x=\"0px\" y=\"0px\" width=\"431.972px\"\n  height=\"431.972px\" viewBox=\"0 0 431.972 431.972\" style=\"\n      enable-background: new 0 0 431.972 431.972;\n      background-color: transparent;\n    \" xml:space=\"preserve\">\n  <g>\n    <path d=\"M393.146,14.279c-3.713-5.333-8.713-9.233-14.989-11.707c-3.997-1.711-8.186-2.568-12.565-2.568V0H66.378\n     c-4.377,0-8.562,0.857-12.56,2.568c-6.28,2.472-11.278,6.377-14.989,11.707c-3.71,5.33-5.568,11.228-5.568,17.701v368.019\n     c0,6.475,1.858,12.371,5.568,17.706c3.711,5.329,8.709,9.233,14.989,11.704c3.994,1.711,8.183,2.566,12.56,2.566\n     c8.949,0,16.844-3.142,23.698-9.418l125.91-121.062l125.91,121.065c6.663,6.081,14.562,9.127,23.695,9.127\n     c4.76,0,8.948-0.756,12.565-2.279c6.276-2.471,11.276-6.375,14.989-11.711c3.71-5.328,5.564-11.225,5.564-17.699V31.98\n     C398.71,25.507,396.852,19.609,393.146,14.279z M362.166,391.139L241.397,275.224l-25.411-24.264l-25.409,24.264L69.809,391.139\n     V36.549h292.357V391.139L362.166,391.139z\" />\n  </g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g></svg>";
   var questionHeadline = createElement({
     type: 'h3',
     target: newCard
@@ -463,12 +461,12 @@ var _readMoreButtonBio = require("./readMoreButtonBio.js");
 
 var _navigation = require("./navigation.js");
 
-(0, _bookmarks.bookmarks)();
 (0, _cards.cards)();
 (0, _form.form)();
 (0, _mode.mode)();
 (0, _readMoreButtonBio.readMoreButtonBio)();
 (0, _navigation.navigation)();
+(0, _bookmarks.bookmarks)();
 },{"./bookmarks.js":"src/js/bookmarks.js","./cards.js":"src/js/cards.js","./form.js":"src/js/form.js","./mode.js":"src/js/mode.js","./readMoreButtonBio.js":"src/js/readMoreButtonBio.js","./navigation.js":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -497,7 +495,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62727" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63656" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
