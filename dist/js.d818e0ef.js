@@ -156,76 +156,166 @@ function bookmarks() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.cardAnswerButtons = cardAnswerButtons;
+exports.setButtonEvents = setButtonEvents;
 
-function cardAnswerButtons() {
-  var showAnswerButton1 = document.querySelector('.card__showanswer1');
-  var answerText1 = document.querySelector('.card__answer1');
-  var hideButton1 = document.querySelector('.card__hideanswer1');
-  showAnswerButton1.addEventListener('click', function () {
-    answerText1.classList.remove('dn');
-    showAnswerButton1.classList.add('dn');
-    hideButton1.classList.remove('dn');
+function setButtonEvents(_ref) {
+  var showAnswerButton = _ref.showAnswerButton,
+      hideButton = _ref.hideButton,
+      answerHead = _ref.answerHead,
+      answerText = _ref.answerText;
+  //const showAnswerButton = document.querySelector('[data-js=showAnswerButton]')
+  //const answerHead = document.querySelector('[data-js=showAnswerHead]')
+  //const answerText1 = document.querySelector('[data-js=showAnswerText]')
+  //const hideButton1 = document.querySelector('[data-js=hideAnswerButton]')
+  showAnswerButton.addEventListener('click', function () {
+    answerHead.classList.remove('dn');
+    answerText.classList.remove('dn');
+    showAnswerButton.classList.add('dn');
+    hideButton.classList.remove('dn');
   });
-  hideButton1.addEventListener('click', function () {
-    answerText1.classList.add('dn');
-    showAnswerButton1.classList.remove('dn');
-    hideButton1.classList.add('dn');
-  });
-  var showAnswerButton2 = document.querySelector('.card__showanswer2');
-  var answerText2 = document.querySelector('.card__answer2');
-  var hideButton2 = document.querySelector('.card__hideanswer2');
-  showAnswerButton2.addEventListener('click', function () {
-    answerText2.classList.remove('dn');
-    showAnswerButton2.classList.add('dn');
-    hideButton2.classList.remove('dn');
-  });
-  hideButton2.addEventListener('click', function () {
-    answerText2.classList.add('dn');
-    showAnswerButton2.classList.remove('dn');
-    hideButton2.classList.add('dn');
-  });
-  var showAnswerButton3 = document.querySelector('.card__showanswer3');
-  var answerText3 = document.querySelector('.card__answer3');
-  var hideButton3 = document.querySelector('.card__hideanswer3');
-  showAnswerButton3.addEventListener('click', function () {
-    answerText3.classList.remove('dn');
-    showAnswerButton3.classList.add('dn');
-    hideButton3.classList.remove('dn');
-  });
-  hideButton3.addEventListener('click', function () {
-    answerText3.classList.add('dn');
-    showAnswerButton3.classList.remove('dn');
-    hideButton3.classList.add('dn');
-  });
-  var showAnswerButton4 = document.querySelector('.card__showanswer4');
-  var answerText4 = document.querySelector('.card__answer4');
-  var hideButton4 = document.querySelector('.card__hideanswer4');
-  showAnswerButton4.addEventListener('click', function () {
-    answerText4.classList.remove('dn');
-    showAnswerButton4.classList.add('dn');
-    hideButton4.classList.remove('dn');
-  });
-  hideButton4.addEventListener('click', function () {
-    answerText4.classList.add('dn');
-    showAnswerButton4.classList.remove('dn');
-    hideButton4.classList.add('dn');
-  });
-  var showAnswerButton5 = document.querySelector('.card__showanswer5');
-  var answerText5 = document.querySelector('.card__answer5');
-  var hideButton5 = document.querySelector('.card__hideanswer5');
-  showAnswerButton5.addEventListener('click', function () {
-    answerText5.classList.remove('dn');
-    showAnswerButton5.classList.add('dn');
-    hideButton5.classList.remove('dn');
-  });
-  hideButton5.addEventListener('click', function () {
-    answerText5.classList.add('dn');
-    showAnswerButton5.classList.remove('dn');
-    hideButton5.classList.add('dn');
+  hideButton.addEventListener('click', function () {
+    answerHead.classList.add('dn');
+    answerText.classList.add('dn');
+    showAnswerButton.classList.remove('dn');
+    hideButton.classList.add('dn');
   });
 }
-},{}],"src/js/form.js":[function(require,module,exports) {
+},{}],"src/js/cards.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.cards = cards;
+exports.createCard = createCard;
+
+var _cardAnswerButtons = require("./cardAnswerButtons.js");
+
+function cards() {
+  var card = [{}, {}, {}];
+  card.forEach(createCard);
+}
+
+var cardSection = get('[data-js=filledcard]');
+
+function createCard(_ref) {
+  var question = _ref.question,
+      answer = _ref.answer,
+      _ref$tags = _ref.tags,
+      tags = _ref$tags === void 0 ? ['tag', 'tag2', 'tag3', 'tag4'] : _ref$tags;
+  var newCard = createElement({
+    className: 'card'
+  });
+  /* const bookmark = createSvg({ type: 'svg', className:"bookmark", x:"0px", y:"0px"})
+   bookmark.textContent = ''
+   */
+
+  var questionHeadline = createElement({
+    type: 'h3',
+    target: newCard
+  });
+  questionHeadline.textContent = 'Question:';
+  var newQuestion = createElement({
+    type: 'p',
+    target: newCard
+  });
+  newQuestion.textContent = question || 'Question: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremqueaspernatur mollitia cum ratione quaerat. Illo esse, dolor, aliquid ipsa officia quibusdam dolore dolorum tempora reprehenderit adipiscinumquam nesciunt. Explicabo, dolorem!';
+  var showAnswerButton = createElement({
+    type: 'button',
+    className: "hide__button",
+    dataJs: 'showAnswerButton',
+    target: newCard
+  });
+  showAnswerButton.textContent = "Show Answer";
+  var hideButton = createElement({
+    type: 'button',
+    className: "dn show__button",
+    dataJs: 'hideAnswerButton',
+    target: newCard
+  });
+  hideButton.textContent = "Hide Answer";
+  var answerHead = createElement({
+    type: 'h3',
+    className: "dn card__answer1",
+    dataJs: 'showAnswerHead',
+    target: newCard
+  });
+  answerHead.textContent = 'Answer:';
+  var answerText = createElement({
+    type: 'p',
+    className: "dn card__answer1",
+    dataJs: 'showAnswerText',
+    target: newCard
+  });
+  answerText.textContent = answer || 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dol ';
+  (0, _cardAnswerButtons.setButtonEvents)({
+    showAnswerButton: showAnswerButton,
+    hideButton: hideButton,
+    answerHead: answerHead,
+    answerText: answerText
+  });
+  var listElementCard = createElement({
+    type: 'ul',
+    className: "card__taglist",
+    dataJs: 'tagList',
+    target: newCard
+  });
+  tags.forEach(createTag);
+
+  function createTag(tag) {
+    var tagElement = createElement({
+      type: 'li',
+      className: "card__tag",
+      dataJs: 'tag',
+      target: listElementCard
+    });
+    tagElement.textContent = tag;
+  }
+}
+
+function createElement() {
+  var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref2$type = _ref2.type,
+      type = _ref2$type === void 0 ? 'section' : _ref2$type,
+      _ref2$className = _ref2.className,
+      className = _ref2$className === void 0 ? '' : _ref2$className,
+      _ref2$dataJs = _ref2.dataJs,
+      dataJs = _ref2$dataJs === void 0 ? '' : _ref2$dataJs,
+      _ref2$target = _ref2.target,
+      target = _ref2$target === void 0 ? cardSection : _ref2$target;
+
+  var el = document.createElement(type);
+  el.className = className;
+  el.setAttribute('data-js', dataJs);
+  target.appendChild(el);
+  return el;
+}
+
+function createSvg() {
+  var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref3$type = _ref3.type,
+      type = _ref3$type === void 0 ? 'section' : _ref3$type,
+      _ref3$className = _ref3.className,
+      className = _ref3$className === void 0 ? '' : _ref3$className,
+      _ref3$dataJs = _ref3.dataJs,
+      dataJs = _ref3$dataJs === void 0 ? '' : _ref3$dataJs,
+      _ref3$target = _ref3.target,
+      target = _ref3$target === void 0 ? cardSection : _ref3$target;
+
+  var el = document.createElement(type);
+  el.className = className;
+  el.setAttribute('data-js', dataJs);
+  svg.setAttribute('width', '432');
+  svg.setAttribute('height', '432');
+  svg.setAttribute('viewBox', '0 0 432 432');
+  target.appendChild(el);
+  return el;
+}
+
+function get(selector) {
+  return document.querySelector(selector);
+}
+},{"./cardAnswerButtons.js":"src/js/cardAnswerButtons.js"}],"src/js/form.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -233,19 +323,29 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.form = form;
 
+var _cards = require("./cards.js");
+
 function form() {
   //Create new card - use the submit button to clear inputs
-  var cardQuestion1 = document.querySelector('.card__question1');
-  var cardAnswer1 = document.querySelector('.answer1');
-  var cardTags1 = document.querySelector('.tags1');
-  var formCreateCard = document.querySelector('.formular__createcard');
+  var cardQuestion1 = document.querySelector('[data-js=question]');
+  var cardAnswer1 = document.querySelector('[data-js=answer]');
+  var cardTags1 = document.querySelector('[data-js=taglist]');
+  var formCreateCard = document.querySelector('[data-js=formCreateCard]');
   var form = document.querySelector('form');
   formCreateCard.addEventListener('submit', function (event) {
+    var question = cardQuestion1.value;
+    var answer = cardAnswer1.value;
+    var tags = cardTags1.value.split(',');
+    (0, _cards.createCard)({
+      question: question,
+      answer: answer,
+      tags: tags
+    });
     event.preventDefault();
     form.reset();
   });
 }
-},{}],"src/js/mode.js":[function(require,module,exports) {
+},{"./cards.js":"src/js/cards.js"}],"src/js/mode.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -353,7 +453,7 @@ function navigation() {
 
 var _bookmarks = require("./bookmarks.js");
 
-var _cardAnswerButtons = require("./cardAnswerButtons.js");
+var _cards = require("./cards.js");
 
 var _form = require("./form.js");
 
@@ -364,12 +464,12 @@ var _readMoreButtonBio = require("./readMoreButtonBio.js");
 var _navigation = require("./navigation.js");
 
 (0, _bookmarks.bookmarks)();
-(0, _cardAnswerButtons.cardAnswerButtons)();
+(0, _cards.cards)();
 (0, _form.form)();
 (0, _mode.mode)();
 (0, _readMoreButtonBio.readMoreButtonBio)();
 (0, _navigation.navigation)();
-},{"./bookmarks.js":"src/js/bookmarks.js","./cardAnswerButtons.js":"src/js/cardAnswerButtons.js","./form.js":"src/js/form.js","./mode.js":"src/js/mode.js","./readMoreButtonBio.js":"src/js/readMoreButtonBio.js","./navigation.js":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bookmarks.js":"src/js/bookmarks.js","./cards.js":"src/js/cards.js","./form.js":"src/js/form.js","./mode.js":"src/js/mode.js","./readMoreButtonBio.js":"src/js/readMoreButtonBio.js","./navigation.js":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -397,7 +497,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62507" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62727" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
