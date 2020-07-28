@@ -124,9 +124,33 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getAll = getAll;
+exports.get = get;
+exports.createElement = createElement;
 
 function getAll(selector) {
   return document.querySelectorAll(selector);
+}
+
+function get(selector) {
+  return document.querySelector(selector);
+}
+
+function createElement() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'section' : _ref$type,
+      _ref$className = _ref.className,
+      className = _ref$className === void 0 ? '' : _ref$className,
+      _ref$dataJs = _ref.dataJs,
+      dataJs = _ref$dataJs === void 0 ? '' : _ref$dataJs,
+      _ref$target = _ref.target,
+      target = _ref$target === void 0 ? cardSection : _ref$target;
+
+  var el = document.createElement(type);
+  el.className = className;
+  el.setAttribute('data-js', dataJs);
+  target.appendChild(el);
+  return el;
 }
 },{}],"src/js/bookmarks.js":[function(require,module,exports) {
 "use strict";
@@ -163,10 +187,6 @@ function setButtonEvents(_ref) {
       hideButton = _ref.hideButton,
       answerHead = _ref.answerHead,
       answerText = _ref.answerText;
-  //const showAnswerButton = document.querySelector('[data-js=showAnswerButton]')
-  //const answerHead = document.querySelector('[data-js=showAnswerHead]')
-  //const answerText1 = document.querySelector('[data-js=showAnswerText]')
-  //const hideButton1 = document.querySelector('[data-js=hideAnswerButton]')
   showAnswerButton.addEventListener('click', function () {
     answerHead.classList.remove('dn');
     answerText.classList.remove('dn');
@@ -191,23 +211,31 @@ exports.createCard = createCard;
 
 var _cardAnswerButtons = require("./cardAnswerButtons.js");
 
+var _util = require("./util.js");
+
 function cards() {
-  var card = [{}, {}, {}];
+  var card = [{}, {}];
   card.forEach(createCard);
 }
 
-var cardSection = get('[data-js=filledcard]');
+var cardSection = (0, _util.get)('[data-js=filledcard]');
 
 function createCard(_ref) {
   var question = _ref.question,
       answer = _ref.answer,
       _ref$tags = _ref.tags,
-      tags = _ref$tags === void 0 ? ['tag', 'tag2', 'tag3', 'tag4'] : _ref$tags;
+      tags = _ref$tags === void 0 ? [] : _ref$tags;
   var newCard = createElement({
     className: 'card'
-  }); //const bookmark = createElement({ type: 'div', className:'', target:newCard})
-
+  });
   newCard.innerHTML = "<svg data-js=\"bookmark\" class=\"bookmark\" version=\"1.1\" x=\"0px\" y=\"0px\" width=\"431.972px\"\n  height=\"431.972px\" viewBox=\"0 0 431.972 431.972\" style=\"\n      enable-background: new 0 0 431.972 431.972;\n      background-color: transparent;\n    \" xml:space=\"preserve\">\n  <g>\n    <path d=\"M393.146,14.279c-3.713-5.333-8.713-9.233-14.989-11.707c-3.997-1.711-8.186-2.568-12.565-2.568V0H66.378\n     c-4.377,0-8.562,0.857-12.56,2.568c-6.28,2.472-11.278,6.377-14.989,11.707c-3.71,5.33-5.568,11.228-5.568,17.701v368.019\n     c0,6.475,1.858,12.371,5.568,17.706c3.711,5.329,8.709,9.233,14.989,11.704c3.994,1.711,8.183,2.566,12.56,2.566\n     c8.949,0,16.844-3.142,23.698-9.418l125.91-121.062l125.91,121.065c6.663,6.081,14.562,9.127,23.695,9.127\n     c4.76,0,8.948-0.756,12.565-2.279c6.276-2.471,11.276-6.375,14.989-11.711c3.71-5.328,5.564-11.225,5.564-17.699V31.98\n     C398.71,25.507,396.852,19.609,393.146,14.279z M362.166,391.139L241.397,275.224l-25.411-24.264l-25.409,24.264L69.809,391.139\n     V36.549h292.357V391.139L362.166,391.139z\" />\n  </g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g></svg>";
+
+  function addBookmarkLogic(bookmark) {
+    bookmark.addEventListener('click', function () {
+      bookmark.classList.toggle('bookmark--on');
+    });
+  }
+
   var questionHeadline = createElement({
     type: 'h3',
     target: newCard
@@ -217,7 +245,7 @@ function createCard(_ref) {
     type: 'p',
     target: newCard
   });
-  newQuestion.textContent = question || 'Question: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremqueaspernatur mollitia cum ratione quaerat. Illo esse, dolor, aliquid ipsa officia quibusdam dolore dolorum tempora reprehenderit adipiscinumquam nesciunt. Explicabo, dolorem!';
+  newQuestion.textContent = question;
   var showAnswerButton = createElement({
     type: 'button',
     className: "hide__button",
@@ -245,7 +273,7 @@ function createCard(_ref) {
     dataJs: 'showAnswerText',
     target: newCard
   });
-  answerText.textContent = answer || 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dol ';
+  answerText.textContent = answer;
   (0, _cardAnswerButtons.setButtonEvents)({
     showAnswerButton: showAnswerButton,
     hideButton: hideButton,
@@ -288,32 +316,7 @@ function createElement() {
   target.appendChild(el);
   return el;
 }
-
-function createSvg() {
-  var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      _ref3$type = _ref3.type,
-      type = _ref3$type === void 0 ? 'section' : _ref3$type,
-      _ref3$className = _ref3.className,
-      className = _ref3$className === void 0 ? '' : _ref3$className,
-      _ref3$dataJs = _ref3.dataJs,
-      dataJs = _ref3$dataJs === void 0 ? '' : _ref3$dataJs,
-      _ref3$target = _ref3.target,
-      target = _ref3$target === void 0 ? cardSection : _ref3$target;
-
-  var el = document.createElement(type);
-  el.className = className;
-  el.setAttribute('data-js', dataJs);
-  svg.setAttribute('width', '432');
-  svg.setAttribute('height', '432');
-  svg.setAttribute('viewBox', '0 0 432 432');
-  target.appendChild(el);
-  return el;
-}
-
-function get(selector) {
-  return document.querySelector(selector);
-}
-},{"./cardAnswerButtons.js":"src/js/cardAnswerButtons.js"}],"src/js/form.js":[function(require,module,exports) {
+},{"./cardAnswerButtons.js":"src/js/cardAnswerButtons.js","./util.js":"src/js/util.js"}],"src/js/form.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -333,7 +336,9 @@ function form() {
   formCreateCard.addEventListener('submit', function (event) {
     var question = cardQuestion1.value;
     var answer = cardAnswer1.value;
-    var tags = cardTags1.value.split(',');
+    var tags = cardTags1.value.split(',').map(function (tags) {
+      return tags.trim();
+    });
     (0, _cards.createCard)({
       question: question,
       answer: answer,
@@ -375,9 +380,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.readMoreButtonBio = readMoreButtonBio;
 
 function readMoreButtonBio() {
-  var showReadMoreBio = document.querySelector('.readmore__button');
-  var readMoreTextBio = document.querySelector('.readmorebio__text');
-  var readLessBio = document.querySelector('.readless__button');
+  var showReadMoreBio = document.querySelector('[data-js=readmoreButton]');
+  var readMoreTextBio = document.querySelector('[data-js=readmoreBioText]');
+  var readLessBio = document.querySelector('[data-js=readlessButton]');
   showReadMoreBio.addEventListener('click', function () {
     readMoreTextBio.classList.remove('dn');
     showReadMoreBio.classList.add('dn');
@@ -464,9 +469,9 @@ var _navigation = require("./navigation.js");
 (0, _cards.cards)();
 (0, _form.form)();
 (0, _mode.mode)();
-(0, _readMoreButtonBio.readMoreButtonBio)();
 (0, _navigation.navigation)();
 (0, _bookmarks.bookmarks)();
+(0, _readMoreButtonBio.readMoreButtonBio)();
 },{"./bookmarks.js":"src/js/bookmarks.js","./cards.js":"src/js/cards.js","./form.js":"src/js/form.js","./mode.js":"src/js/mode.js","./readMoreButtonBio.js":"src/js/readMoreButtonBio.js","./navigation.js":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -495,7 +500,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63656" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51324" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

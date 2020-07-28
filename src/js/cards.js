@@ -1,20 +1,18 @@
 
 import { setButtonEvents } from './cardAnswerButtons.js'
+import { get } from './util.js'
 
 export function cards() {
-  const card = [{},{}, {}
-  ]
+  const card = [{}, {}]
   card.forEach(createCard)
-
 }
 
 const cardSection = get('[data-js=filledcard]')
 
-export function createCard({question, answer, tags = ['tag', 'tag2', 'tag3','tag4']}) {
+export function createCard({question, answer, tags = []}) {
 
   const newCard = createElement({ className: 'card' })
 
-//const bookmark = createElement({ type: 'div', className:'', target:newCard})
   newCard.innerHTML =`<svg data-js="bookmark" class="bookmark" version="1.1" x="0px" y="0px" width="431.972px"
   height="431.972px" viewBox="0 0 431.972 431.972" style="
       enable-background: new 0 0 431.972 431.972;
@@ -44,32 +42,33 @@ export function createCard({question, answer, tags = ['tag', 'tag2', 'tag3','tag
   <g></g>
   <g></g>
   <g></g></svg>`
-  
+
+
+function addBookmarkLogic(bookmark) {
+  bookmark.addEventListener('click', () => {
+  bookmark.classList.toggle('bookmark--on')
+  }) 
+}
 
   const questionHeadline = createElement({ type: 'h3', target: newCard })
   questionHeadline.textContent = 'Question:'
 
   const newQuestion = createElement({ type: 'p', target: newCard })
-  newQuestion.textContent = question || 'Question: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremqueaspernatur mollitia cum ratione quaerat. Illo esse, dolor, aliquid ipsa officia quibusdam dolore dolorum tempora reprehenderit adipiscinumquam nesciunt. Explicabo, dolorem!'
+  newQuestion.textContent = question
 
-
-  
   const showAnswerButton = createElement({ type: 'button', className: "hide__button", dataJs: 'showAnswerButton', target: newCard })
   showAnswerButton.textContent = "Show Answer"
 
   const hideButton = createElement({ type: 'button', className: "dn show__button", dataJs: 'hideAnswerButton', target: newCard })
   hideButton.textContent = "Hide Answer"
 
-
   const answerHead = createElement({ type: 'h3', className: "dn card__answer1", dataJs: 'showAnswerHead', target: newCard })
   answerHead.textContent = 'Answer:'
 
   const answerText = createElement({ type: 'p', className: "dn card__answer1", dataJs: 'showAnswerText', target: newCard })
- answerText.textContent = answer || 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dol '
+  answerText.textContent = answer
 
   setButtonEvents({showAnswerButton, hideButton, answerHead, answerText})
-
-
 
   const listElementCard = createElement({ type: 'ul', className: "card__taglist", dataJs: 'tagList', target: newCard })
 
@@ -84,6 +83,7 @@ export function createCard({question, answer, tags = ['tag', 'tag2', 'tag3','tag
 
 
 
+
 function createElement({ type = 'section', className = '', dataJs = '', target = cardSection } = {}) {
   const el = document.createElement(type)
   el.className = className
@@ -91,20 +91,4 @@ function createElement({ type = 'section', className = '', dataJs = '', target =
   target.appendChild(el)
   return el
 }
-
-function createSvg({ type = 'section', className = '', dataJs = '', target = cardSection } = {}) {
-  const el = document.createElement(type)
-  el.className = className
-  el.setAttribute('data-js', dataJs)
-  svg.setAttribute('width', '432')
-  svg.setAttribute('height', '432')
-  svg.setAttribute('viewBox', '0 0 432 432') 
-  target.appendChild(el)
-  return el
-}
-
-function get(selector) {
-  return document.querySelector(selector)
-}
-
 

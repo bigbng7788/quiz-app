@@ -1,8 +1,9 @@
-export function setButtonEvents({showAnswerButton, hideButton, answerHead, answerText}){
-  //const showAnswerButton = document.querySelector('[data-js=showAnswerButton]')
-  //const answerHead = document.querySelector('[data-js=showAnswerHead]')
-  //const answerText1 = document.querySelector('[data-js=showAnswerText]')
-  //const hideButton1 = document.querySelector('[data-js=hideAnswerButton]')
+export function setButtonEvents({
+  showAnswerButton,
+  hideButton,
+  answerHead,
+  answerText,
+}) {
 
   showAnswerButton.addEventListener('click', () => {
     answerHead.classList.remove('dn')
@@ -17,5 +18,4 @@ export function setButtonEvents({showAnswerButton, hideButton, answerHead, answe
     showAnswerButton.classList.remove('dn')
     hideButton.classList.add('dn')
   })
-
 }

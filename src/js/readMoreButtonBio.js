@@ -1,7 +1,7 @@
 export function readMoreButtonBio() {
-  const showReadMoreBio = document.querySelector('.readmore__button')
-  const readMoreTextBio = document.querySelector('.readmorebio__text')
-  const readLessBio = document.querySelector('.readless__button')
+  const showReadMoreBio = document.querySelector('[data-js=readmoreButton]')
+  const readMoreTextBio = document.querySelector('[data-js=readmoreBioText]')
+  const readLessBio = document.querySelector('[data-js=readlessButton]')
 
   showReadMoreBio.addEventListener('click', () => {
     readMoreTextBio.classList.remove('dn')

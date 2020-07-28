@@ -8,6 +8,8 @@ import { navigation } from './navigation.js'
 cards()
 form()
 mode()
-readMoreButtonBio()
+
 navigation()
 bookmarks()
+
+readMoreButtonBio()
