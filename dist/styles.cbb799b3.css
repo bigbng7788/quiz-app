@@ -109,7 +109,7 @@ footer {
   border: solid 2px;
   border-radius: 20px;
   position: relative;
-  background-color: #023002;
+  background-color: rgba(6, 51, 49, 0.715);
 }
 
 .card h2 {
