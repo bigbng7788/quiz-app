@@ -1,4 +1,3 @@
-import { bookmarks } from './bookmarks.js'
 import { cards } from './cards.js'
 import { form } from './form.js'
 import { mode } from './mode.js'
@@ -10,6 +9,5 @@ form()
 mode()
 
 navigation()
-bookmarks()
 
 readMoreButtonBio()

@@ -1,19 +1,21 @@
-
 import { setButtonEvents } from './cardAnswerButtons.js'
 import { get } from './util.js'
 
 export function cards() {
-  const card = [{}, {}]
+  const card = [{}]
   card.forEach(createCard)
 }
 
 const cardSection = get('[data-js=filledcard]')
 
-export function createCard({question, answer, tags = []}) {
+export function createCard({ question, answer, tags = [] }) {
+  const newCard = createElement({
+    className: 'card',
+    dataJs: 'card',
+    prepend: true,
+  })
 
-  const newCard = createElement({ className: 'card' })
-
-  newCard.innerHTML =`<svg data-js="bookmark" class="bookmark" version="1.1" x="0px" y="0px" width="431.972px"
+  newCard.innerHTML = `<svg data-js="bookmark" class="bookmark" version="1.1" x="0px" y="0px" width="431.972px"
   height="431.972px" viewBox="0 0 431.972 431.972" style="
       enable-background: new 0 0 431.972 431.972;
       background-color: transparent;
@@ -43,12 +45,10 @@ export function createCard({question, answer, tags = []}) {
   <g></g>
   <g></g></svg>`
 
-
-function addBookmarkLogic(bookmark) {
+  const bookmark = newCard.querySelector('[data-js=bookmark]')
   bookmark.addEventListener('click', () => {
-  bookmark.classList.toggle('bookmark--on')
-  }) 
-}
+    bookmark.classList.toggle('bookmark--on')
+  })
 
   const questionHeadline = createElement({ type: 'h3', target: newCard })
   questionHeadline.textContent = 'Question:'
@@ -56,39 +56,71 @@ function addBookmarkLogic(bookmark) {
   const newQuestion = createElement({ type: 'p', target: newCard })
   newQuestion.textContent = question
 
-  const showAnswerButton = createElement({ type: 'button', className: "hide__button", dataJs: 'showAnswerButton', target: newCard })
-  showAnswerButton.textContent = "Show Answer"
+  const showAnswerButton = createElement({
+    type: 'button',
+    className: 'hide__button',
+    dataJs: 'showAnswerButton',
+    target: newCard,
+  })
+  showAnswerButton.textContent = 'Show Answer'
 
-  const hideButton = createElement({ type: 'button', className: "dn show__button", dataJs: 'hideAnswerButton', target: newCard })
-  hideButton.textContent = "Hide Answer"
+  const hideButton = createElement({
+    type: 'button',
+    className: 'dn show__button',
+    dataJs: 'hideAnswerButton',
+    target: newCard,
+  })
+  hideButton.textContent = 'Hide Answer'
 
-  const answerHead = createElement({ type: 'h3', className: "dn card__answer1", dataJs: 'showAnswerHead', target: newCard })
+  const answerHead = createElement({
+    type: 'h3',
+    className: 'dn card__answer1',
+    dataJs: 'showAnswerHead',
+    target: newCard,
+  })
   answerHead.textContent = 'Answer:'
 
-  const answerText = createElement({ type: 'p', className: "dn card__answer1", dataJs: 'showAnswerText', target: newCard })
+  const answerText = createElement({
+    type: 'p',
+    className: 'dn card__answer1',
+    dataJs: 'showAnswerText',
+    target: newCard,
+  })
   answerText.textContent = answer
 
-  setButtonEvents({showAnswerButton, hideButton, answerHead, answerText})
+  setButtonEvents({ showAnswerButton, hideButton, answerHead, answerText })
 
-  const listElementCard = createElement({ type: 'ul', className: "card__taglist", dataJs: 'tagList', target: newCard })
+  const listElementCard = createElement({
+    type: 'ul',
+    className: 'card__taglist',
+    dataJs: 'tagList',
+    target: newCard,
+  })
 
   tags.forEach(createTag)
 
   function createTag(tag) {
-    const tagElement = createElement({ type: 'li', className: "card__tag", dataJs: 'tag', target: listElementCard })
+    const tagElement = createElement({
+      type: 'li',
+      className: 'card__tag',
+      dataJs: 'tag',
+      target: listElementCard,
+    })
     tagElement.textContent = tag
   }
-
 }
 
-
-
-
-function createElement({ type = 'section', className = '', dataJs = '', target = cardSection } = {}) {
+function createElement({
+  type = 'section',
+  className = '',
+  dataJs = '',
+  target = cardSection,
+  prepend = false,
+} = {}) {
   const el = document.createElement(type)
   el.className = className
   el.setAttribute('data-js', dataJs)
-  target.appendChild(el)
+  if (prepend === true) target.insertBefore(el, target.firstChild)
+  else target.appendChild(el)
   return el
 }
-

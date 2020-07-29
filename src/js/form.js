@@ -11,7 +11,11 @@ export function form() {
   formCreateCard.addEventListener('submit', function (event) {
     const question = cardQuestion1.value
     const answer = cardAnswer1.value
-    const tags = cardTags1.value.split(',').map(tags => tags.trim())
+    const tags =
+      cardTags1.value.length == 0
+        ? []
+        : cardTags1.value.split(',').map((tags) => tags.trim())
+
     createCard({ question, answer, tags })
     event.preventDefault()
     form.reset()

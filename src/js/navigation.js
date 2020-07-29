@@ -1,6 +1,6 @@
 export function navigation() {
   const mainHome = document.querySelector('#maindashboard')
-  const mainBookmark = document.querySelector('#mainbookmark')
+  const mainBookmark = mainHome
   const mainCreate = document.querySelector('#maincreate')
   const mainProfile = document.querySelector('#mainprofile')
 
@@ -28,6 +28,11 @@ export function navigation() {
     inactiveAllSections()
     mainHome.classList.remove('dn')
     navHome.classList.add('nav--active')
+    toggleBookmarks({})
+    /*const newCards = Array.from(document.querySelectorAll('[data-js="card"'))
+    newCards
+      .filter(card => !card.querySelector('.bookmark--on'))
+      .forEach(cardoff => cardoff.classList.remove('dn'))*/
   })
 
   navBookmark.addEventListener('click', () => {
@@ -35,6 +40,13 @@ export function navigation() {
     inactiveAllSections()
     mainBookmark.classList.remove('dn')
     navBookmark.classList.add('nav--active')
+    toggleBookmarks({showOnPage:false})
+
+
+    /*const newCards = Array.from(document.querySelectorAll('[data-js="card"'))
+    newCards
+      .filter(card => !card.querySelector('.bookmark--on'))
+      .forEach(cardoff.classList.add('dn'))*/
   })
 
   navCreate.addEventListener('click', () => {
@@ -51,3 +63,30 @@ export function navigation() {
     navProfile.classList.add('nav--active')
   })
 }
+
+function toggleBookmarks({ showOnPage = true }) {
+  const newCards = Array.from(document.querySelectorAll('[data-js="card"'))
+  newCards
+    .filter((card) => !card.querySelector('.bookmark--on'))
+    .forEach((cardoff) =>
+      showOnPage === true
+        ? cardoff.classList.remove('dn')
+        : cardoff.classList.add('dn')
+    )
+}
+
+/*function showInactiveBookmarks() {
+  const newCards = Array.from(document.querySelectorAll('[data-js="card"'))
+  newCards
+    .filter(card => !card.querySelector('.bookmark--on'))
+    .forEach(cardoff => cardoff.classList.remove('dn'))
+
+}
+
+function setBookmarkPageCardVisibility() {
+  const newCards = Array.from(document.querySelectorAll('[data-js="card"'))
+  newCards
+    .filter(card => !card.querySelector('.bookmark--on'))
+    .forEach(cardoff.classList.add('dn'))
+
+}*/

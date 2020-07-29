@@ -4,7 +4,6 @@ export function setButtonEvents({
   answerHead,
   answerText,
 }) {
-
   showAnswerButton.addEventListener('click', () => {
     answerHead.classList.remove('dn')
     answerText.classList.remove('dn')

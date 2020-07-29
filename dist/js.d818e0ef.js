@@ -117,7 +117,33 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/js/util.js":[function(require,module,exports) {
+})({"src/js/cardAnswerButtons.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setButtonEvents = setButtonEvents;
+
+function setButtonEvents(_ref) {
+  var showAnswerButton = _ref.showAnswerButton,
+      hideButton = _ref.hideButton,
+      answerHead = _ref.answerHead,
+      answerText = _ref.answerText;
+  showAnswerButton.addEventListener('click', function () {
+    answerHead.classList.remove('dn');
+    answerText.classList.remove('dn');
+    showAnswerButton.classList.add('dn');
+    hideButton.classList.remove('dn');
+  });
+  hideButton.addEventListener('click', function () {
+    answerHead.classList.add('dn');
+    answerText.classList.add('dn');
+    showAnswerButton.classList.remove('dn');
+    hideButton.classList.add('dn');
+  });
+}
+},{}],"src/js/util.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -152,54 +178,6 @@ function createElement() {
   target.appendChild(el);
   return el;
 }
-},{}],"src/js/bookmarks.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.bookmarks = bookmarks;
-
-var _util = require("./util.js");
-
-(0, _util.getAll)();
-
-function bookmarks() {
-  var bookmarkList = (0, _util.getAll)('[data-js=bookmark]');
-  bookmarkList.forEach(bookmarkToggle);
-
-  function bookmarkToggle(ausgesuchtBookmark) {
-    ausgesuchtBookmark.addEventListener('click', function () {
-      ausgesuchtBookmark.classList.toggle('bookmark--on');
-    });
-  }
-}
-},{"./util.js":"src/js/util.js"}],"src/js/cardAnswerButtons.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.setButtonEvents = setButtonEvents;
-
-function setButtonEvents(_ref) {
-  var showAnswerButton = _ref.showAnswerButton,
-      hideButton = _ref.hideButton,
-      answerHead = _ref.answerHead,
-      answerText = _ref.answerText;
-  showAnswerButton.addEventListener('click', function () {
-    answerHead.classList.remove('dn');
-    answerText.classList.remove('dn');
-    showAnswerButton.classList.add('dn');
-    hideButton.classList.remove('dn');
-  });
-  hideButton.addEventListener('click', function () {
-    answerHead.classList.add('dn');
-    answerText.classList.add('dn');
-    showAnswerButton.classList.remove('dn');
-    hideButton.classList.add('dn');
-  });
-}
 },{}],"src/js/cards.js":[function(require,module,exports) {
 "use strict";
 
@@ -214,7 +192,7 @@ var _cardAnswerButtons = require("./cardAnswerButtons.js");
 var _util = require("./util.js");
 
 function cards() {
-  var card = [{}, {}];
+  var card = [{}];
   card.forEach(createCard);
 }
 
@@ -226,16 +204,15 @@ function createCard(_ref) {
       _ref$tags = _ref.tags,
       tags = _ref$tags === void 0 ? [] : _ref$tags;
   var newCard = createElement({
-    className: 'card'
+    className: 'card',
+    dataJs: 'card',
+    prepend: true
   });
   newCard.innerHTML = "<svg data-js=\"bookmark\" class=\"bookmark\" version=\"1.1\" x=\"0px\" y=\"0px\" width=\"431.972px\"\n  height=\"431.972px\" viewBox=\"0 0 431.972 431.972\" style=\"\n      enable-background: new 0 0 431.972 431.972;\n      background-color: transparent;\n    \" xml:space=\"preserve\">\n  <g>\n    <path d=\"M393.146,14.279c-3.713-5.333-8.713-9.233-14.989-11.707c-3.997-1.711-8.186-2.568-12.565-2.568V0H66.378\n     c-4.377,0-8.562,0.857-12.56,2.568c-6.28,2.472-11.278,6.377-14.989,11.707c-3.71,5.33-5.568,11.228-5.568,17.701v368.019\n     c0,6.475,1.858,12.371,5.568,17.706c3.711,5.329,8.709,9.233,14.989,11.704c3.994,1.711,8.183,2.566,12.56,2.566\n     c8.949,0,16.844-3.142,23.698-9.418l125.91-121.062l125.91,121.065c6.663,6.081,14.562,9.127,23.695,9.127\n     c4.76,0,8.948-0.756,12.565-2.279c6.276-2.471,11.276-6.375,14.989-11.711c3.71-5.328,5.564-11.225,5.564-17.699V31.98\n     C398.71,25.507,396.852,19.609,393.146,14.279z M362.166,391.139L241.397,275.224l-25.411-24.264l-25.409,24.264L69.809,391.139\n     V36.549h292.357V391.139L362.166,391.139z\" />\n  </g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g>\n  <g></g></svg>";
-
-  function addBookmarkLogic(bookmark) {
-    bookmark.addEventListener('click', function () {
-      bookmark.classList.toggle('bookmark--on');
-    });
-  }
-
+  var bookmark = newCard.querySelector('[data-js=bookmark]');
+  bookmark.addEventListener('click', function () {
+    bookmark.classList.toggle('bookmark--on');
+  });
   var questionHeadline = createElement({
     type: 'h3',
     target: newCard
@@ -248,28 +225,28 @@ function createCard(_ref) {
   newQuestion.textContent = question;
   var showAnswerButton = createElement({
     type: 'button',
-    className: "hide__button",
+    className: 'hide__button',
     dataJs: 'showAnswerButton',
     target: newCard
   });
-  showAnswerButton.textContent = "Show Answer";
+  showAnswerButton.textContent = 'Show Answer';
   var hideButton = createElement({
     type: 'button',
-    className: "dn show__button",
+    className: 'dn show__button',
     dataJs: 'hideAnswerButton',
     target: newCard
   });
-  hideButton.textContent = "Hide Answer";
+  hideButton.textContent = 'Hide Answer';
   var answerHead = createElement({
     type: 'h3',
-    className: "dn card__answer1",
+    className: 'dn card__answer1',
     dataJs: 'showAnswerHead',
     target: newCard
   });
   answerHead.textContent = 'Answer:';
   var answerText = createElement({
     type: 'p',
-    className: "dn card__answer1",
+    className: 'dn card__answer1',
     dataJs: 'showAnswerText',
     target: newCard
   });
@@ -282,7 +259,7 @@ function createCard(_ref) {
   });
   var listElementCard = createElement({
     type: 'ul',
-    className: "card__taglist",
+    className: 'card__taglist',
     dataJs: 'tagList',
     target: newCard
   });
@@ -291,7 +268,7 @@ function createCard(_ref) {
   function createTag(tag) {
     var tagElement = createElement({
       type: 'li',
-      className: "card__tag",
+      className: 'card__tag',
       dataJs: 'tag',
       target: listElementCard
     });
@@ -308,12 +285,14 @@ function createElement() {
       _ref2$dataJs = _ref2.dataJs,
       dataJs = _ref2$dataJs === void 0 ? '' : _ref2$dataJs,
       _ref2$target = _ref2.target,
-      target = _ref2$target === void 0 ? cardSection : _ref2$target;
+      target = _ref2$target === void 0 ? cardSection : _ref2$target,
+      _ref2$prepend = _ref2.prepend,
+      prepend = _ref2$prepend === void 0 ? false : _ref2$prepend;
 
   var el = document.createElement(type);
   el.className = className;
   el.setAttribute('data-js', dataJs);
-  target.appendChild(el);
+  if (prepend === true) target.insertBefore(el, target.firstChild);else target.appendChild(el);
   return el;
 }
 },{"./cardAnswerButtons.js":"src/js/cardAnswerButtons.js","./util.js":"src/js/util.js"}],"src/js/form.js":[function(require,module,exports) {
@@ -336,7 +315,7 @@ function form() {
   formCreateCard.addEventListener('submit', function (event) {
     var question = cardQuestion1.value;
     var answer = cardAnswer1.value;
-    var tags = cardTags1.value.split(',').map(function (tags) {
+    var tags = cardTags1.value.length == 0 ? [] : cardTags1.value.split(',').map(function (tags) {
       return tags.trim();
     });
     (0, _cards.createCard)({
@@ -404,7 +383,7 @@ exports.navigation = navigation;
 
 function navigation() {
   var mainHome = document.querySelector('#maindashboard');
-  var mainBookmark = document.querySelector('#mainbookmark');
+  var mainBookmark = mainHome;
   var mainCreate = document.querySelector('#maincreate');
   var mainProfile = document.querySelector('#mainprofile');
   var navHome = document.querySelector('#nav_home');
@@ -431,12 +410,24 @@ function navigation() {
     inactiveAllSections();
     mainHome.classList.remove('dn');
     navHome.classList.add('nav--active');
+    toggleBookmarks({});
+    /*const newCards = Array.from(document.querySelectorAll('[data-js="card"'))
+    newCards
+      .filter(card => !card.querySelector('.bookmark--on'))
+      .forEach(cardoff => cardoff.classList.remove('dn'))*/
   });
   navBookmark.addEventListener('click', function () {
     hideAllSections();
     inactiveAllSections();
     mainBookmark.classList.remove('dn');
     navBookmark.classList.add('nav--active');
+    toggleBookmarks({
+      showOnPage: false
+    });
+    /*const newCards = Array.from(document.querySelectorAll('[data-js="card"'))
+    newCards
+      .filter(card => !card.querySelector('.bookmark--on'))
+      .forEach(cardoff.classList.add('dn'))*/
   });
   navCreate.addEventListener('click', function () {
     hideAllSections();
@@ -451,10 +442,34 @@ function navigation() {
     navProfile.classList.add('nav--active');
   });
 }
+
+function toggleBookmarks(_ref) {
+  var _ref$showOnPage = _ref.showOnPage,
+      showOnPage = _ref$showOnPage === void 0 ? true : _ref$showOnPage;
+  var newCards = Array.from(document.querySelectorAll('[data-js="card"'));
+  newCards.filter(function (card) {
+    return !card.querySelector('.bookmark--on');
+  }).forEach(function (cardoff) {
+    return showOnPage === true ? cardoff.classList.remove('dn') : cardoff.classList.add('dn');
+  });
+}
+/*function showInactiveBookmarks() {
+  const newCards = Array.from(document.querySelectorAll('[data-js="card"'))
+  newCards
+    .filter(card => !card.querySelector('.bookmark--on'))
+    .forEach(cardoff => cardoff.classList.remove('dn'))
+
+}
+
+function setBookmarkPageCardVisibility() {
+  const newCards = Array.from(document.querySelectorAll('[data-js="card"'))
+  newCards
+    .filter(card => !card.querySelector('.bookmark--on'))
+    .forEach(cardoff.classList.add('dn'))
+
+}*/
 },{}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
-
-var _bookmarks = require("./bookmarks.js");
 
 var _cards = require("./cards.js");
 
@@ -470,9 +485,8 @@ var _navigation = require("./navigation.js");
 (0, _form.form)();
 (0, _mode.mode)();
 (0, _navigation.navigation)();
-(0, _bookmarks.bookmarks)();
 (0, _readMoreButtonBio.readMoreButtonBio)();
-},{"./bookmarks.js":"src/js/bookmarks.js","./cards.js":"src/js/cards.js","./form.js":"src/js/form.js","./mode.js":"src/js/mode.js","./readMoreButtonBio.js":"src/js/readMoreButtonBio.js","./navigation.js":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./cards.js":"src/js/cards.js","./form.js":"src/js/form.js","./mode.js":"src/js/mode.js","./readMoreButtonBio.js":"src/js/readMoreButtonBio.js","./navigation.js":"src/js/navigation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -500,7 +514,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51324" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54864" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
